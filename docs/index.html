@@ -5,8 +5,45 @@
   <title>Steven Frieson</title>
   <meta name="description" content="Information about Steven Frieson including resume, portfolio links, contact info, and more." />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="/css/index.css">
   <!-- Global site tag (gtag.js) - Google Analytics -->
+  <style>
+    body {
+      background-color: #7f4cb1;
+      background: linear-gradient(85deg, #7f4cb1, #3200a4);
+      box-sizing: border-box;
+      color: white;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      position: relative;
+    }
+
+    a {
+      color: white;
+    }
+
+    @keyframes enter {
+      100% {
+        opacity: 1;
+        transform: translate(0, 0);
+      }
+    }
+
+    .enter {
+      animation: enter 1s ease-out forwards;
+      opacity: 0;
+    }
+
+    .enter--body {
+      transform: translate(0, -30px);
+      overflow: hidden;
+    }
+
+    .enter--title {
+      animation-delay: 500ms;
+      opacity: 0;
+      transform: translate(-80px, 20px);
+    }
+  </style>
+  <link rel="stylesheet" href="/css/index.css">
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-16686332-1"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -14,196 +51,198 @@
     gtag('js', new Date());
 
     gtag('config', 'UA-16686332-1');
-  </script>
+    </script>
 </head>
 <body itemscope="" itemtype="https://schema.org/Person">
-  <h1 itemprop="name">Steven Frieson</h1>
-  <nav class='nav-bar'>
-    <ul class="nav-list">
-      <li class="nav-item">
-        <a class="nav-link" href='#about'>About</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href='#tech'>Tech</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href='#portfolio'>Portfolio</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href='#resume'>Resume</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href='#links'>Links</a>
-      </li>
-    </ul>
-  </nav>
-  <div class="pages">
-    <section class="page about" id='about'>
-      <h2 class='visually-hidden'>About</h2>
-      <p>I dream ideas.</p>
-      <p>I write code.</p>
-      <p>I solve problems.</p>
-    </section>
-    <section id="tech" class="page">
-      <h2>Tech</h2>
-      <ul  class="tech-list" itemprop="knowsAbout" itemscope itemtype="http://schema.org/ItemList">
-        <li class="tech-list-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-          <span class="tech-name" itemprop="item">React</span>
-          <div class="tech-logo">
-            <img src="/images/react.svg" alt="React logo" />
-          </div>
+  <h1 itemprop="name" class="enter enter--title">Steven Frieson</h1>
+  <div class="enter enter--body">
+    <nav class="nav-bar">
+      <ul class="nav-list">
+        <li class="nav-item">
+          <a class="nav-link" href="#about">About</a>
         </li>
-        <li class="tech-list-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-          <span class="tech-name" itemprop="item">GraphQL</span>
-          <div class="tech-logo">
-            <img src="/images/graphql.svg" alt="GraphQL logo" />
-          </div>
+        <li class="nav-item">
+          <a class="nav-link" href="#tech">Tech</a>
         </li>
-        <li class="tech-list-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-          <span class="tech-name" itemprop="item">Elasticsearch</span>
-          <div class="tech-logo">
-            <img src="/images/elasticsearch.svg" alt="Elasticsearch logo"/>
-          </div>
+        <li class="nav-item">
+          <a class="nav-link" href="#portfolio">Portfolio</a>
         </li>
-        <li class="tech-list-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-          <span class="tech-name" itemprop="item">Node.js</span>
-          <div class="tech-logo">
-            <img src="/images/nodejs.png" alt="Node.js logo"/>
-          </div>
+        <li class="nav-item">
+          <a class="nav-link" href="#resume">Resume</a>
         </li>
-        <li class="tech-list-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-          <span class="tech-name" itemprop="item">styled-components</span>
-          <div class="tech-logo">
-            <img src="/images/styled-components.png" alt="styled-components logo"/>
-          </div>
-        </li>
-        <li class="tech-list-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-          <span class="tech-name" itemprop="item">Service Worker</span>
-          <div class="tech-logo">
-            <img src="/images/service-worker.svg" alt="Service Worker logo"/>
-          </div>
+        <li class="nav-item">
+          <a class="nav-link" href="#links">Links</a>
         </li>
       </ul>
-    </section>
-    <section class="page" id="portfolio">
-      <h2>Portfolio</h2>
-      <ul class="list--portfolio">
-        <li>
-          <article>
-            <h3>Guac-A-Mole</h3>
-            <p>I always thought it was funny that if you pronounce "guacamole" as you would an English word, it sounds like Whack-A-Mole. When I learned that my first project at General Assembly needed to be a game, I already had one up my sleeve! Take a whack at an avocado to make some Guac-A-Mole!</p>
-            <p><a href="http://sfrieson.github.io/Guac-A-Mole">Play the game.</a></p>
-            <!-- <img src='' alt="image description" /> -->
-          </article>
-        </li>
-        <li>
-          <article>
-            <h3>2048</h3>
-            <p>After playing 2048 for weeks on the subway, and finally learning strategies to play better, I started seeing the game differently. I realized that going to General Assembly gave me tools to dissect this game and remake it myself, so I did it.</p>
-            <p><a href="http://sfrieson.github.io/2048/">Play 2048</a></p>
-            <!-- <img src='' alt="image description" /> -->
-          </article>
-        </li>
-        <li>
-          <article>
-            <h3>Leslie Satin</h3>
-            <p>The website for the choreographer, dancer, professor, and writer Leslie Satin. The website serves the purpose of being a tool for Leslie Satin to catalog all she's worked on in a more elegant way than a CV. At the same time, the website had to be easy to update regularly.</p>
-            <p><a href="http://lesliesatin.com">See the Website.</a></p>
-            <!-- <img src='' alt="image description" /> -->
-          </article>
-        </li>
-      </ul>
-    </section>
-    <section class="page" id="resume">
-      <h2>Resume</h2>
-      <ol class="list--resume">
-        <li>
-          <article itemprop="memberOf" itemscope itemtype="https://schema.org/OrganizationRole">
-            <meta itemProp="startDate" content="2017" />
-            <meta itemProp="roleName" content="Application Developer" />
-            <div itemprop="memberOf" itemscope itemType="https://schema.org/Organization">
-              <h3 itemprop="name">AudienceView</h3>
-              <p>I was hired near the beginning of the redesign of the TheaterMania and WhatsOnStage brands' websites––two websites driven by the same codebase and some clever configuration. I was invited to the small team for my React and frontend experience where the rest of the team were mainly PHP full stack developers. Helping our team get to launch, I became the de facto lead for the website (Next.js, styled-components, Apollo client, Node.js) and the API (Apollo server, ElasticSearch, Node.js).</p>
-              <p><a href="https://www.theatermania.com">TheaterMania</a></p>
-              <!-- <img src='' alt="job description" /> -->
+    </nav>
+    <div class="pages">
+      <section class="page about" id="about">
+        <h2 class="visually-hidden">About</h2>
+        <p>I dream ideas.</p>
+        <p>I write code.</p>
+        <p>I solve problems.</p>
+      </section>
+      <section id="tech" class="page">
+        <h2>Tech</h2>
+        <ul  class="tech-list" itemprop="knowsAbout" itemscope itemtype="http://schema.org/ItemList">
+          <li class="tech-list-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <span class="tech-name" itemprop="item">React</span>
+            <div class="tech-logo">
+              <img src="/images/react.svg" alt="React logo" />
             </div>
-          </article>
-        </li>
-        <li>
-          <article>
-            <h3>Udacity PyTorch Challenge</h3>
-            <p>I won a scholarship to take the Udacity PyTorch Challenge learning the basics of deep learning with the PyTorch Python library. This course went through the fundamentals of deep learning and neural networks, guiding me through implementing my own as well as using networks built and trained by others. I used the network to do several tasks like predict college acceptance, transfer artistic style from one image, and even classify over 100 species of flowers from a supplied image.</p>
-            <p>Flower classifcation project to come...</p>
-          </article>
-        </li>
-        <li>
-          <article itemprop="memberOf" itemscope itemtype="https://schema.org/OrganizationRole">
-            <meta itemProp="startDate" content="2016" />
-            <meta itemProp="endDate" content="2017" />
-            <meta itemProp="roleName" content="E-Learning Software Developer" />
-            <div itemprop="memberOf" itemscope itemType="https://schema.org/Organization">
-              <h3 itemProp="name">RW3</h3>
-              <p>RW3's CultureWizard is an e-learning platform teaching and supplying information about culture as it relates to the workplace for 160 countries. As their sole frontend developer, I developed the redesign of the platform using React, Redux, and Sass, incorporating the legacy materials into the new experience. After completion, I designed and developed new features to continue where the redesign left off.</p>
+          </li>
+          <li class="tech-list-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <span class="tech-name" itemprop="item">GraphQL</span>
+            <div class="tech-logo">
+              <img src="/images/graphql.svg" alt="GraphQL logo" />
+            </div>
+          </li>
+          <li class="tech-list-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <span class="tech-name" itemprop="item">Elasticsearch</span>
+            <div class="tech-logo">
+              <img src="/images/elasticsearch.svg" alt="Elasticsearch logo"/>
+            </div>
+          </li>
+          <li class="tech-list-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <span class="tech-name" itemprop="item">Node.js</span>
+            <div class="tech-logo">
+              <img src="/images/nodejs.png" alt="Node.js logo"/>
+            </div>
+          </li>
+          <li class="tech-list-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <span class="tech-name" itemprop="item">styled-components</span>
+            <div class="tech-logo">
+              <img src="/images/styled-components.png" alt="styled-components logo"/>
+            </div>
+          </li>
+          <li class="tech-list-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <span class="tech-name" itemprop="item">Service Worker</span>
+            <div class="tech-logo">
+              <img src="/images/service-worker.svg" alt="Service Worker logo"/>
+            </div>
+          </li>
+        </ul>
+      </section>
+      <section class="page" id="portfolio">
+        <h2>Portfolio</h2>
+        <ul class="list--portfolio">
+          <li>
+            <article>
+              <h3>Guac-A-Mole</h3>
+              <p>I always thought it was funny that if you pronounce "guacamole" as you would an English word, it sounds like Whack-A-Mole. When I learned that my first project at General Assembly needed to be a game, I already had one up my sleeve! Take a whack at an avocado to make some Guac-A-Mole!</p>
+              <p><a href="http://sfrieson.github.io/Guac-A-Mole">Play the game.</a></p>
+              <!-- <img src="" alt="image description" /> -->
+            </article>
+          </li>
+          <li>
+            <article>
+              <h3>2048</h3>
+              <p>After playing 2048 for weeks on the subway, and finally learning strategies to play better, I started seeing the game differently. I realized that going to General Assembly gave me tools to dissect this game and remake it myself, so I did it.</p>
+              <p><a href="http://sfrieson.github.io/2048/">Play 2048</a></p>
+              <!-- <img src="" alt="image description" /> -->
+            </article>
+          </li>
+          <li>
+            <article>
+              <h3>Leslie Satin</h3>
+              <p>The website for the choreographer, dancer, professor, and writer Leslie Satin. The website serves the purpose of being a tool for Leslie Satin to catalog all she's worked on in a more elegant way than a CV. At the same time, the website had to be easy to update regularly.</p>
+              <p><a href="http://lesliesatin.com">See the Website.</a></p>
+              <!-- <img src="" alt="image description" /> -->
+            </article>
+          </li>
+        </ul>
+      </section>
+      <section class="page" id="resume">
+        <h2>Resume</h2>
+        <ol class="list--resume">
+          <li>
+            <article itemprop="memberOf" itemscope itemtype="https://schema.org/OrganizationRole">
+              <meta itemProp="startDate" content="2017" />
+              <meta itemProp="roleName" content="Application Developer" />
+              <div itemprop="memberOf" itemscope itemType="https://schema.org/Organization">
+                <h3 itemprop="name">AudienceView</h3>
+                <p>I was hired near the beginning of the redesign of the TheaterMania and WhatsOnStage brands' websites––two websites driven by the same codebase and some clever configuration. I was invited to the small team for my React and frontend experience where the rest of the team were mainly PHP full stack developers. Helping our team get to launch, I became the de facto lead for the website (Next.js, styled-components, Apollo client, Node.js) and the API (Apollo server, ElasticSearch, Node.js).</p>
+                <p><a href="https://www.theatermania.com">TheaterMania</a></p>
+                <!-- <img src="" alt="job description" /> -->
+              </div>
+            </article>
+          </li>
+          <li>
+            <article>
+              <h3>Udacity PyTorch Challenge</h3>
+              <p>I won a scholarship to take the Udacity PyTorch Challenge learning the basics of deep learning with the PyTorch Python library. This course went through the fundamentals of deep learning and neural networks, guiding me through implementing my own as well as using networks built and trained by others. I used the network to do several tasks like predict college acceptance, transfer artistic style from one image, and even classify over 100 species of flowers from a supplied image.</p>
+              <p>Flower classifcation project to come...</p>
+            </article>
+          </li>
+          <li>
+            <article itemprop="memberOf" itemscope itemtype="https://schema.org/OrganizationRole">
+              <meta itemProp="startDate" content="2016" />
+              <meta itemProp="endDate" content="2017" />
+              <meta itemProp="roleName" content="E-Learning Software Developer" />
+              <div itemprop="memberOf" itemscope itemType="https://schema.org/Organization">
+                <h3 itemProp="name">RW3</h3>
+                <p>RW3's CultureWizard is an e-learning platform teaching and supplying information about culture as it relates to the workplace for 160 countries. As their sole frontend developer, I developed the redesign of the platform using React, Redux, and Sass, incorporating the legacy materials into the new experience. After completion, I designed and developed new features to continue where the redesign left off.</p>
+                <!-- <p><a href="#">Link to project</a></p> -->
+                <!-- <img src="" alt="job description" /> -->
+              </div>
+            </article>
+          </li>
+          <li>
+            <article itemprop="alumniOf" itemscope itemtype="https://schema.org/OrganizationRole">
+              <meta itemProp="startDate" content="2015" />
+              <meta itemProp="endDate" content="2016" />
+              <meta itemProp="roleName" content="Application Developer" />
+              <div itemprop="alumniOf" itemscope itemType="https://schema.org/School">
+                <h3 itemProp="name">General Assembly</h3>
+                <p>The Web Development Immersive is a 3 month course which prepared me to be a front end developer. The course supplied hands-on experiences start with HTML, CSS, JavaScript, and jQuery. It progressed through Ruby frameworks (Sinatra, Ruby on Rails) and JavaScript frameworks (Angular 1, MEAN stack). Along the way we learn about git, GitHub, SQL, NoSQL.</p>
+                <p><a href="http://sfrieson.github.io/2048/">2048</a></p>
+                <p><a href="http://sfrieson.github.io/Guac-A-Mole">Guac-A-Mole</a></p>
+                <!-- <img src="" alt="job description" /> -->
+              </div>
+            </article>
+          </li>
+          <li>
+            <article>
+              <h3>Graphic Design</h3>
+              <p>Before development, I held a couple jobs and freelanced for several clients doing graphic design. My longest tenure was at New York Cares where I was in charge of all of their print design for small products like postcards and handouts through more upscale items like gala invitations and Times Square billboards. I managed client relations and expectations keeping projects on budget and on time.</p>
               <!-- <p><a href="#">Link to project</a></p> -->
-              <!-- <img src='' alt="job description" /> -->
-            </div>
-          </article>
-        </li>
-        <li>
-          <article itemprop="alumniOf" itemscope itemtype="https://schema.org/OrganizationRole">
-            <meta itemProp="startDate" content="2015" />
-            <meta itemProp="endDate" content="2016" />
-            <meta itemProp="roleName" content="Application Developer" />
-            <div itemprop="alumniOf" itemscope itemType="https://schema.org/School">
-              <h3 itemProp="name">General Assembly</h3>
-              <p>The Web Development Immersive is a 3 month course which prepared me to be a front end developer. The course supplied hands-on experiences start with HTML, CSS, JavaScript, and jQuery. It progressed through Ruby frameworks (Sinatra, Ruby on Rails) and JavaScript frameworks (Angular 1, MEAN stack). Along the way we learn about git, GitHub, SQL, NoSQL.</p>
-              <p><a href="http://sfrieson.github.io/2048/">2048</a></p>
-              <p><a href="http://sfrieson.github.io/Guac-A-Mole">Guac-A-Mole</a></p>
-              <!-- <img src='' alt="job description" /> -->
-            </div>
-          </article>
-        </li>
-        <li>
-          <article>
-            <h3>Graphic Design</h3>
-            <p>Before development, I held a couple jobs and freelanced for several clients doing graphic design. My longest tenure was at New York Cares where I was in charge of all of their print design for small products like postcards and handouts through more upscale items like gala invitations and Times Square billboards. I managed client relations and expectations keeping projects on budget and on time.</p>
-            <!-- <p><a href="#">Link to project</a></p> -->
-            <!-- <img src='' alt="job description" /> -->
-          </article>
-        </li>
-        <li>
-          <article itemprop="alumniOf" itemscope itemtype="https://schema.org/OrganizationRole">
-            <meta itemProp="startDate" content="2015" />
-            <meta itemProp="endDate" content="2016" />
-            <meta itemProp="roleName" content="Application Developer" />
-            <div itemprop="alumniOf" itemscope itemType="https://schema.org/CollegeOrUniversity">
-              <h3 itemProp="name">New York University</h3>
-              <p>The Gallatin School at NYU allowed me to design my own independent study focused on creativity. Through the course I combined my interests in many different art forms (music, photography, writing, knitting) and honed in on the creative process and demistifying it. I was not only introduced to new forms of art (dance, painting) but also ideas (Theory of Forms) as well.</p>
-              <!-- <p><a href="#">Link to project</a></p> -->
-              <!-- <img src='' alt="job description" /> -->
-            </div>
-          </article>
-        </li>
-      </ol>
-    </section>
-    <section class="page" id="links">
-      <h2>Links</h2>
-      <ul class="list--links">
-        <li>
-          <a href="https://github.com/sfrieson" itemprop="sameAs">GitHub</a>
-        </li>
-        <li>
-          <a href="https://twitter.com/stevenfrieson" itemprop="sameAs">Twitter</a>
-        </li>
-        <li>
-          <a href="https://www.linkedin.com/in/sfrieson/" itemprop="sameAs">LinkedIn</a>
-        </li>
-        <li>
-          <a href="https://codepen.io/sfrieson/" itemprop="sameAs">CodePen</a>
-        </li>
-      </ul>
-      <p>sfrieson (at) gmail (dot) com</p>
-    </section>
+              <!-- <img src="" alt="job description" /> -->
+            </article>
+          </li>
+          <li>
+            <article itemprop="alumniOf" itemscope itemtype="https://schema.org/OrganizationRole">
+              <meta itemProp="startDate" content="2015" />
+              <meta itemProp="endDate" content="2016" />
+              <meta itemProp="roleName" content="Application Developer" />
+              <div itemprop="alumniOf" itemscope itemType="https://schema.org/CollegeOrUniversity">
+                <h3 itemProp="name">New York University</h3>
+                <p>The Gallatin School at NYU allowed me to design my own independent study focused on creativity. Through the course I combined my interests in many different art forms (music, photography, writing, knitting) and honed in on the creative process and demistifying it. I was not only introduced to new forms of art (dance, painting) but also ideas (Theory of Forms) as well.</p>
+                <!-- <p><a href="#">Link to project</a></p> -->
+                <!-- <img src="" alt="job description" /> -->
+              </div>
+            </article>
+          </li>
+        </ol>
+      </section>
+      <section class="page" id="links">
+        <h2>Links</h2>
+        <ul class="list--links">
+          <li>
+            <a href="https://github.com/sfrieson" itemprop="sameAs">GitHub</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/stevenfrieson" itemprop="sameAs">Twitter</a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/sfrieson/" itemprop="sameAs">LinkedIn</a>
+          </li>
+          <li>
+            <a href="https://codepen.io/sfrieson/" itemprop="sameAs">CodePen</a>
+          </li>
+        </ul>
+        <p>sfrieson (at) gmail (dot) com</p>
+      </section>
+    </div>
   </div>
 </body>
 </html>
