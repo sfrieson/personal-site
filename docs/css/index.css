@@ -80,8 +80,19 @@ a:visited {
   background-color: #1c2b30;
   box-sizing: border-box;
   height: calc(100vh - 8.3vw - 3rem - 1px);
+  -webkit-overflow-scrolling: touch;
+  overflow-x: scroll;
   overflow-y: auto;
+  scroll-behavior: smooth;
+  width: 100%;
+}
+
+.page {
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  position: relative;
   padding: 0 .5em;
+  width: 100%;
 }
 
 .tech-list {
@@ -133,10 +144,41 @@ img {
     background: linear-gradient(145deg, #7f4cb1, #3200a4);
     padding: 0 5rem 5rem 5rem;
   }
-  
+
   .pages {
     box-shadow: 40px 20px 80px rgba(0, 0, 0, 0.4), -10px -10px 120px rgba(0, 0, 0, 0.2) inset;
     height: calc(100vh - 8.3vw - 3rem - 5rem);
+  }
+
+  .page {
     padding: 1em;
+  }
+
+  @supports(scroll-snap-type: mandatory) {
+    .pages {
+      display: flex;
+      overflow-y: hidden;
+      scroll-snap-type: mandatory;
+      scroll-snap-points-x: repeat(100%);
+    }
+
+    .page {
+      height: 100%;
+      overflow-y: auto;
+    }
+  }
+
+  @supports(scroll-snap-type: x mandatory) {
+    .pages {
+      display: flex;
+      scroll-snap-type: x mandatory;
+      overflow-y: hidden;
+    }
+
+    .page {
+      height: 100%;
+      overflow-y: auto;
+      scroll-snap-align: start;
+    }
   }
 }
