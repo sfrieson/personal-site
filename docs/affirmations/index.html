@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" href="/affirmations/styles.css" media="all">
+  <title>Affirmations</title>
+  <meta name="description" content="Truth statements for followers of Christ.">
+  <meta name="theme-color" content="#021f7c">
+  <link rel="manifest" href="/affirmations/manifest.json">
+</head>
+<body>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/affirmations/pwa.js')
+        .then(worker => console.log('registered'))
+        .catch(err => console.log('failed', err));
+    }
+  </script>
+  <main>
+    <h1 class='title'>Affirmations</h1>
+    <div id="affirmation-section">Loading...</div>
+  </main>
+  <aside>
+    <h2>This is what affirmations are</h2>
+    <p>Some text...</p>
+  </aside>
+  <template id="list-template">
+    <ul class="a-list">
+    </ul>
+  </template>
+  <template id="item-template">
+      <li class="list-item">
+        <div class="item-card">
+          <div class="cross"></div>
+          <p class="item-text"></p>
+        </div>
+      </li>
+    </template>
+  <script src="/affirmations/script.js"></script>
+</body>
+</html>
