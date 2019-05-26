@@ -1,4 +1,5 @@
-var CACHE_NAME = 'affirmations/1.0.0';
+const cacheRE = /([\w-]+)\/(\d+)\.(\d+)\.(\d+)/
+const CACHE_NAME = 'affirmations/1.0.1';
 const ROOT_PATH = '/affirmations';
 var urlsToCache = [
   '/',
@@ -27,6 +28,30 @@ self.addEventListener('fetch', function (event) {
   );
 });
 
-// self.addEventListener('activate', function (event) {
-//   console.log('Service Worker activating.');
-// });
+self.addEventListener('activate', function (event) {
+  caches.keys().then(function(cacheNames) {
+    if (!cacheRE.test(CACHE_NAME)) return Promise.resolve();
+    const matches = CACHE_NAME.match(cacheRE);
+    const current = {
+      name: matches[0],
+      major: +matches[1],
+      minor: +matches[2],
+      patch: +matches[3]
+    };
+
+    return Promise.all(
+      cacheNames.filter(function(cacheName) {
+        if (!cacheRE.test(cacheName)) return false; // Don't delete any that don't match the pattern schema. Might not be ours.
+        const matches = cacheName.match(cacheRE);
+        if (
+          matches[0] === current.name
+          && (
+            +matches[1] < current.major
+            || +matches[2] < current.minor
+            || +matches[3] < current.patch
+          )
+        ) return true;
+      }).map(cacheName => caches.delete(cacheName))
+    );
+  });
+});
