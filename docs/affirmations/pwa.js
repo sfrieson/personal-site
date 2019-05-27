@@ -1,5 +1,5 @@
 const cacheRE = /([\w-]+)\/(\d+)\.(\d+)\.(\d+)/
-const CACHE_NAME = 'affirmations/1.0.2';
+const CACHE_NAME = 'affirmations/1.0.3';
 const ROOT_PATH = '/affirmations';
 var urlsToCache = [
   '/',
