@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/ohr/static/css/main.88824ec2.chunk.css",
+    "main.js": "/ohr/static/js/main.c54361c3.chunk.js",
+    "main.js.map": "/ohr/static/js/main.c54361c3.chunk.js.map",
+    "runtime-main.js": "/ohr/static/js/runtime-main.15068ebd.js",
+    "runtime-main.js.map": "/ohr/static/js/runtime-main.15068ebd.js.map",
+    "static/js/2.7a1fd90a.chunk.js": "/ohr/static/js/2.7a1fd90a.chunk.js",
+    "static/js/2.7a1fd90a.chunk.js.map": "/ohr/static/js/2.7a1fd90a.chunk.js.map",
+    "index.html": "/ohr/index.html",
+    "precache-manifest.b1e622ea7484fe38a9c610ddf5026fb5.js": "/ohr/precache-manifest.b1e622ea7484fe38a9c610ddf5026fb5.js",
+    "service-worker.js": "/ohr/service-worker.js",
+    "static/css/main.88824ec2.chunk.css.map": "/ohr/static/css/main.88824ec2.chunk.css.map",
+    "static/js/2.7a1fd90a.chunk.js.LICENSE": "/ohr/static/js/2.7a1fd90a.chunk.js.LICENSE"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.15068ebd.js",
+    "static/js/2.7a1fd90a.chunk.js",
+    "static/css/main.88824ec2.chunk.css",
+    "static/js/main.c54361c3.chunk.js"
+  ]
+}
