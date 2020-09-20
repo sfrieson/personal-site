@@ -1,0 +1,25 @@
+{
+  "parserOptions": {
+    "ecmaVersion": 2015,
+    "sourceType": "module"
+  },
+  "env": {
+    // "jest/globals": true,
+    "cypress/globals": true,
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "eslint-config-prettier",
+    // "plugin:jest/recommended",
+    // "plugin:jest/style",
+    "plugin:cypress/recommended"
+  ],
+  "plugins": [
+    // "jest",
+    "cypress"
+  ],
+  "rules": {
+    "strict": ["error", "never"]
+  }
+}
