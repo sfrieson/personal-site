@@ -4,9 +4,73 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Steven Frieson's Website</title>
+    <style>
+      :root {
+        --color-eggplant: hsl(265, 40%, 20%);
+
+        --bgColor-default: #eee;
+        --color-default: var(--color-eggplant);
+      }
+      @media screen and (prefers-color-scheme: dark) {
+        :root {
+          --bgColor-default: var(--color-eggplant);
+          --color-default: #eee;
+        }
+      }
+
+      body {
+        background-color: var(--bgColor-default);
+        color: var(--color-default);
+        padding: 0;
+      }
+    </style>
   </head>
   <body>
     <a href="#main-content">Skip to main content.</a>
+    <div
+      id="theme-switcher"
+      role="presentation"
+      style="display: none; position: absolute; top: 0; right: 100px"
+    >
+      <fieldset>
+        <legend>Color theme</legend>
+        <label>
+          Dark
+          <input
+            id="prefers-dark"
+            name="color-theme"
+            type="radio"
+            value="dark"
+            disabled
+          />
+        </label>
+        <label>
+          Light
+          <input
+            id="prefers-light"
+            name="color-theme"
+            type="radio"
+            value="light"
+            checked
+            disabled
+          />
+        </label>
+      </fieldset>
+      <script type="module">
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)')
+          .matches;
+        if (prefersDark) {
+          document.getElementById('prefers-dark').checked = true;
+        }
+        const themeSwitcherRoot = document.getElementById('theme-switcher');
+        themeSwitcherRoot.style.display = 'block';
+        import('/js/theme-switcher/index.js').then(
+          ({ default: themeSwitcher }) => {
+            themeSwitcher(themeSwitcherRoot, prefersDark);
+          }
+        );
+      </script>
+    </div>
     <p>Hi, I am Steven.</p>
     <h1>Welcome to my website</h1>
     <header>
@@ -170,11 +234,13 @@
             <h4>TheaterMania</h4>
             <p>
               My next experience was a similar one. I joined their small team at
-              the beginning of a redesign of <a>their website</a>, which
-              publishes theater news and sells tickets. At TheaterMania, I
-              gained experience in a few backend technologies like GraphQL and
-              ElasticSearch, as well as deepening my front end skills with
-              performance, SEO, and ad service.
+              the beginning of a redesign of
+              <a href="https://www.theatermania.com" rel="noofollower noopener"
+                >their website</a
+              >, which publishes theater news and sells tickets. At
+              TheaterMania, I gained experience in a few backend technologies
+              like GraphQL and ElasticSearch, as well as deepening my front end
+              skills with performance, SEO, and ad service.
             </p>
           </div>
           <div>
