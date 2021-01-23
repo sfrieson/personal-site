@@ -4,266 +4,280 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Steven Frieson's Website</title>
-    <style>
-      :root {
-        --color-eggplant: hsl(265, 40%, 20%);
-
-        --bgColor-default: #eee;
-        --color-default: var(--color-eggplant);
-      }
-      @media screen and (prefers-color-scheme: dark) {
-        :root {
-          --bgColor-default: var(--color-eggplant);
-          --color-default: #eee;
-        }
-      }
-
-      body {
-        background-color: var(--bgColor-default);
-        color: var(--color-default);
-        padding: 0;
-      }
-    </style>
+    <!-- <link rel="preload" href="/fonts/atkinson-hyperlegible/regular.woff2" as="font" type="font/woff2">
+    <link rel="preload" href="/fonts/atkinson-hyperlegible/bold.woff2" as="font" type="font/woff2"> -->
+    <link href="/styles.css" rel="stylesheet" type="text/css" id="mainStylesheet">
   </head>
   <body>
-    <a href="#main-content">Skip to main content.</a>
-    <div
-      id="theme-switcher"
-      role="presentation"
-      style="display: none; position: absolute; top: 0; right: 100px"
-    >
-      <fieldset>
-        <legend>Color theme</legend>
-        <label>
-          Dark
-          <input
-            id="prefers-dark"
-            name="color-theme"
-            type="radio"
-            value="dark"
-            disabled
-          />
-        </label>
-        <label>
-          Light
-          <input
-            id="prefers-light"
-            name="color-theme"
-            type="radio"
-            value="light"
-            checked
-            disabled
-          />
-        </label>
-      </fieldset>
-      <script type="module">
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)')
-          .matches;
-        if (prefersDark) {
-          document.getElementById('prefers-dark').checked = true;
-        }
-        const themeSwitcherRoot = document.getElementById('theme-switcher');
-        themeSwitcherRoot.style.display = 'block';
-        import('/js/theme-switcher/index.js').then(
-          ({ default: themeSwitcher }) => {
-            themeSwitcher(themeSwitcherRoot, prefersDark);
-          }
-        );
-      </script>
-    </div>
-    <p>Hi, I am Steven.</p>
-    <h1>Welcome to my website</h1>
-    <header>
-      <p>
-        I am a web developer, and I made this website. It is made with the three
-        core web technologies: HTML, CSS, JavaScript. If you would like to learn
-        about more of the technologies driving this site, see the colophon.
-      </p>
-      <p>
-        This website is meant to give you an idea of who I am, how I got to
-        where I am today, and display what I do as a developer. This site is
-        also meant to be informative, showing some things I'm interested in and
-        maybe teaching you something along the way. It's meant to be fun, so I
-        hope you enjoy the interactive bits. Finally it's for everyone. If
-        something about this site is hard for you to use, please tell me.
-      </p>
-      <!-- Outline/Nav -->
-      <nav>
-        <ol>
-          <li><a href="#background">Background</a></li>
-          <li><a href="#interests">Interests</a></li>
-          <li><a href="#education">Education</a></li>
-          <li><a href="#career">Career</a></li>
-          <li><a href="#about-this-site">About this site</a></li>
-        </ol>
-      </nav>
-    </header>
-    <main id="main-content">
-      <section id="background">
-        <h2>Background</h2>
-        <p>
-          I was born in Philadelphia, Pennsylvania and was raised in the
-          suburbs. Though I grew up in a geographically small area, I've had the
-          opportunity to travel all over the world. Here's some of the places
-          I've been.
-        </p>
-        <div>
-          <h3>Countries (and territories) I've visited</h3>
-          <ul>
-            <li>Aruba</li>
-            <li>Austria</li>
-            <li>Bahamas</li>
-            <li>Belgium</li>
-            <li>Canada</li>
-            <li>Cayman Islands</li>
-            <li>China</li>
-            <li>France</li>
-            <li>Germany</li>
-            <li>Haiti</li>
-            <li>Italy</li>
-            <li>Luxembourg</li>
-            <li>Malta</li>
-            <li>Netherlands</li>
-            <li>Spain</li>
-            <li>Switzerland</li>
-            <li>United States of America</li>
-            <li>US Virgin Islands</li>
-          </ul>
-        </div>
-      </section>
-      <section id="interests">
-        <h2>Interests</h2>
-        <p>Outside of programming I have other interests as well.</p>
-        <div>
-          <h3>Music</h3>
-          <p>
-            All throughout school I was known for being musical. I can play
-            several instruments and sing. The first instrument I learned and the
-            one I still play the most often is the piano.
-          </p>
-          <!-- Piano widget -->
-        </div>
-        <div>
-          <h3>Fiber arts</h3>
-          <p>
-            In college a friend taught me the basics of crocheting. From there I
-            continued to learn more and then taught myself how to knit. Some
-            other fiber arts that I've tried are sewing and spinning yarn. I'd
-            also like to try embroidery and weaving.
-          </p>
-        </div>
-        <div>
-          <h3>Photography</h3>
-          <p>
-            I became very interested in photography in middle school. I've taken
-            both film and digital photography classes in high school and
-            college. This is what introduced me to Adobe Photoshop and the rest
-            of the Adobe Creative Suite.
-          </p>
-        </div>
-      </section>
-      <section id="education">
-        <h2>Education</h2>
-        <p>
-          After growing up in southeastern Pennsylvania, I moved to New York, NY
-          to attend continue my school.
-        </p>
-        <div>
-          <h3>College</h3>
-          <p>
-            I attended college at New York University. At NYU, I studied music
-            and arts, continuing my musical practice and exploring several new
-            artforms.
-          </p>
-        </div>
-        <div>
-          <h3>Tech Bootcamp</h3>
-          <p>
-            After a few years working in graphic design, I decided switch
-            careers to web development. I had been dabbling with web
-            technologies since high school, but going to General Assembly taught
-            me solid foundations to break into a new industry.
-          </p>
-          <!-- Guac-A-Mole/2048 -->
-        </div>
-        <div>
-          <h3>Machine Learning</h3>
-          <p>
-            As a fun exploration as well possible professional development, I
-            took a course in machine learning.
-          </p>
-          <!-- Generate a recipe? -->
-        </div>
-      </section>
-      <section id="career">
-        <h2>Career</h2>
-        <p>
-          Aside from part-time jobs including teaching piano, working in fast
-          food, and working at a yarn store, I've mainly had two careers.
-        </p>
-        <div>
-          <h3>Design</h3>
-          <p>
-            Coming out of college my first couple of jobs were in graphic
-            design. Working for
-            <a
-              href="https://newyorkcares.org"
-              target="_blank"
-              rel="nofollow noopener"
-              >New York Cares</a
-            >, I was able to work on some amazing projects like putting
-            advertisements on Times Square billboards for the annual Coat Drive.
-          </p>
-        </div>
-        <div>
-          <h3>Development</h3>
-          <p>
-            Since finishing <abbr title="General Assembly">GA</abbr>, I've had a
-            few tech jobs. The focus of each job has been very different, but
-            the front end technologies at each have centered around React.
-          </p>
-          <div>
-            <h4>RW3</h4>
-            <p>
-              At my first tech job, I was the sole front end developer, and was
-              charged with the task of implementing the redesign of their
-              flagship e-learning software CultureWizard.
+    <!-- Header -->
+    <a class="skip-content elevation--1 padding--half" href="#main-content">Skip to main content.</a>
+    <script>
+      const baseline = 16 * 1.25 * 1.5;
+      var mySVG = `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 ${baseline}' width='1px'><rect x='0px' width='1' y='${baseline - 1}' height='1' fill='#f5df4d' /></svg>`;
+      var mySVG64 = window.btoa(mySVG);
+      // document.body.style.backgroundImage = "url('data:image/svg+xml;base64," + mySVG64 + "')";
+    </script>
+    <svg class="swash" role="presentation" xmlns="http://www.w3.org/2000/svg" width="1920" height="60" viewBox="0 0 1920 60" preserveAspectRatio="none"><path id="Path_1" data-name="Path 1" d="M0,0H1920V60S1227,24,747,24,0,38,0,38Z" /></svg>
+    <!-- Body -->
+    <div class="display--flex">
+      <div class="main__column left-margin"></div>
+      <div class="main__layout display--flex">
+        <aside class="main__column links padding--x--half position--relative">
+          <nav class="nav__container padding--x--half position--relative">
+            <p class="nav__links display--flex">
+              <a href="/">Home</a>
+              <a href="/blog/index.html">Blog</a>
+              <a href="/career/index.html">Career</a>
+              <a href="/contact.html">Contact</a>
+              <a href="/about/index.html">About this site</a>
             </p>
+          </nav>
+          <div
+            id="theme-switcher"
+            role="presentation"
+            style="display: none;"
+          >
+            <section aria-labelledby="theme-switcher__heading" class="theme-switcher__section padding--x--half">
+              <p id="theme-switcher__heading" class="theme-switcher__heading fontWeight--bold position--relative no-newline">Color theme:</p>
+              <p>
+                <label for="prefers-dark" class="theme-switcher__label">
+                  Dark</label>
+                  <input
+                    id="prefers-dark"
+                    class="theme-switcher__input"
+                    name="color-theme"
+                    type="radio"
+                    value="dark"
+                    disabled
+                  />
+
+                <label for="prefers-light" class="theme-switcher__label">
+                  Light</label>
+                  <input
+                    id="prefers-light"
+                    class="theme-switcher__input"
+                    name="color-theme"
+                    type="radio"
+                    value="light"
+                    disabled
+                  />
+
+              </p>
+            </section>
+            <script type="module">
+              const prefersDark = window.matchMedia('(prefers-color-scheme: dark)')
+                .matches;
+              if (prefersDark) {
+                document.getElementById('prefers-dark').checked = true;
+              }
+              const themeSwitcherRoot = document.getElementById('theme-switcher');
+              themeSwitcherRoot.style.display = 'block';
+              import('/js/theme-switcher/index.js').then(
+                ({ default: themeSwitcher }) => {
+                  themeSwitcher(themeSwitcherRoot, prefersDark);
+                }
+              );
+            </script>
           </div>
-          <div>
-            <h4>TheaterMania</h4>
+        </aside>
+        <main class="main main__column padding--x--half">
+          <p>Hi, I am Steven.</p>
+          <h1>Welcome to my website</h1>
+          <header>
             <p>
-              My next experience was a similar one. I joined their small team at
-              the beginning of a redesign of
-              <a href="https://www.theatermania.com" rel="noofollower noopener"
-                >their website</a
-              >, which publishes theater news and sells tickets. At
-              TheaterMania, I gained experience in a few backend technologies
-              like GraphQL and ElasticSearch, as well as deepening my front end
-              skills with performance, SEO, and ad service.
+              I am a web developer, and I made this website. It is made with the three
+              core web technologies: HTML, CSS, JavaScript. If you would like to learn
+              about more of the technologies driving this site, see the colophon.
             </p>
-          </div>
-          <div>
-            <h4>CB Insights</h4>
             <p>
-              My current job has been a big change for me, in that it's the
-              first time I've worked on a medium-sized engineering team and on
-              enterprise software in the business/finance sector. I've worked on
-              feature teams, but also championed multiple successful efforts
-              around code quality and developer experience.
+              This website is meant to give you an idea of who I am, how I got to
+              where I am today, and display what I do as a developer. This site is
+              also meant to be informative, showing some things I'm interested in and
+              maybe teaching you something along the way. It's meant to be fun, so I
+              hope you enjoy the interactive bits. Finally it's for everyone. If
+              something about this site is hard for you to use, please tell me.
             </p>
-          </div>
-        </div>
-      </section>
-    </main>
-    <footer>
-      <section id="about-this-site">
-        <h2>About this site</h2>
-        <!-- technologies -->
-        <!-- fonts -->
-        <!-- software? -->
-        <!-- methodology: html-first, mobile-first, a11y -->
-      </section>
-    </footer>
+            <!-- Outline/Nav -->
+            <nav>
+              <ol>
+                <li><a href="#background">Background</a></li>
+                <li><a href="#interests">Interests</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#career">Career</a></li>
+                <li><a href="#about-this-site">About this site</a></li>
+              </ol>
+            </nav>
+          </header>
+          <main id="main-content">
+            <section id="background">
+              <h2>Background</h2>
+              <p>
+                I was born in Philadelphia, Pennsylvania and was raised in the
+                suburbs. Though I grew up in a geographically small area, I've had the
+                opportunity to travel all over the world. Here's some of the places
+                I've been.
+              </p>
+              <div>
+                <h3>Countries (and territories) I've visited</h3>
+                <ul>
+                  <li>Aruba</li>
+                  <li>Austria</li>
+                  <li>Bahamas</li>
+                  <li>Belgium</li>
+                  <li>Canada</li>
+                  <li>Cayman Islands</li>
+                  <li>China</li>
+                  <li>France</li>
+                  <li>Germany</li>
+                  <li>Haiti</li>
+                  <li>Italy</li>
+                  <li>Luxembourg</li>
+                  <li>Malta</li>
+                  <li>Netherlands</li>
+                  <li>Spain</li>
+                  <li>Switzerland</li>
+                  <li>United States of America</li>
+                  <li>US Virgin Islands</li>
+                </ul>
+              </div>
+            </section>
+            <section id="interests">
+              <h2>Interests</h2>
+              <p>Outside of programming I have other interests as well.</p>
+              <div>
+                <h3>Music</h3>
+                <p>
+                  All throughout school I was known for being musical. I can play
+                  several instruments and sing. The first instrument I learned and the
+                  one I still play the most often is the piano.
+                </p>
+                <!-- Piano widget -->
+              </div>
+              <div>
+                <h3>Fiber arts</h3>
+                <p>
+                  In college a friend taught me the basics of crocheting. From there I
+                  continued to learn more and then taught myself how to knit. Some
+                  other fiber arts that I've tried are sewing and spinning yarn. I'd
+                  also like to try embroidery and weaving.
+                </p>
+              </div>
+              <div>
+                <h3>Photography</h3>
+                <p>
+                  I became very interested in photography in middle school. I've taken
+                  both film and digital photography classes in high school and
+                  college. This is what introduced me to Adobe Photoshop and the rest
+                  of the Adobe Creative Suite.
+                </p>
+              </div>
+            </section>
+            <section id="education">
+              <h2>Education</h2>
+              <p>
+                After growing up in southeastern Pennsylvania, I moved to New York, NY
+                to attend continue my school.
+              </p>
+              <div>
+                <h3>College</h3>
+                <p>
+                  I attended college at New York University. At NYU, I studied music
+                  and arts, continuing my musical practice and exploring several new
+                  artforms.
+                </p>
+              </div>
+              <div>
+                <h3>Tech Bootcamp</h3>
+                <p>
+                  After a few years working in graphic design, I decided switch
+                  careers to web development. I had been dabbling with web
+                  technologies since high school, but going to General Assembly taught
+                  me solid foundations to break into a new industry.
+                </p>
+                <!-- Guac-A-Mole/2048 -->
+              </div>
+              <div>
+                <h3>Machine Learning</h3>
+                <p>
+                  As a fun exploration as well possible professional development, I
+                  took a course in machine learning.
+                </p>
+                <!-- Generate a recipe? -->
+              </div>
+            </section>
+            <section id="career">
+              <h2>Career</h2>
+              <p>
+                Aside from part-time jobs including teaching piano, working in fast
+                food, and working at a yarn store, I've mainly had two careers.
+              </p>
+              <div>
+                <h3>Design</h3>
+                <p>
+                  Coming out of college my first couple of jobs were in graphic
+                  design. Working for
+                  <a
+                    href="https://newyorkcares.org"
+                    target="_blank"
+                    rel="nofollow noopener"
+                    >New York Cares</a
+                  >, I was able to work on some amazing projects like putting
+                  advertisements on Times Square billboards for the annual Coat Drive.
+                </p>
+              </div>
+              <div>
+                <h3>Development</h3>
+                <p>
+                  Since finishing <abbr title="General Assembly">GA</abbr>, I've had a
+                  few tech jobs. The focus of each job has been very different, but
+                  the front end technologies at each have centered around React.
+                </p>
+                <div>
+                  <h4>RW3</h4>
+                  <p>
+                    At my first tech job, I was the sole front end developer, and was
+                    charged with the task of implementing the redesign of their
+                    flagship e-learning software CultureWizard.
+                  </p>
+                </div>
+                <div>
+                  <h4>TheaterMania</h4>
+                  <p>
+                    My next experience was a similar one. I joined their small team at
+                    the beginning of a redesign of
+                    <a href="https://www.theatermania.com" rel="noofollower noopener"
+                      >their website</a
+                    >, which publishes theater news and sells tickets. At
+                    TheaterMania, I gained experience in a few backend technologies
+                    like GraphQL and ElasticSearch, as well as deepening my front end
+                    skills with performance, SEO, and ad service.
+                  </p>
+                </div>
+                <div>
+                  <h4>CB Insights</h4>
+                  <p>
+                    My current job has been a big change for me, in that it's the
+                    first time I've worked on a medium-sized engineering team and on
+                    enterprise software in the business/finance sector. I've worked on
+                    feature teams, but also championed multiple successful efforts
+                    around code quality and developer experience.
+                  </p>
+                </div>
+              </div>
+            </section>
+          </main>
+          <footer>
+            <section id="about-this-site">
+              <h5>About this site</h5>
+              <p>bla bla bla</p>
+              <!-- technologies -->
+              <!-- fonts -->
+              <!-- software? -->
+              <!-- methodology: html-first, mobile-first, a11y -->
+            </section>
+          </footer>
+        </main>
+      </div>
+  </div>
   </body>
 </html>

@@ -1,0 +1,53 @@
+body {
+  font-size: 10px;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+.stage {
+  perspective-origin: center center;
+  transform-style: preserve-3d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  perspective: 1800px;
+}
+.arch,
+.arch * {
+  transform-style: preserve-3d;
+}
+.leg {
+  position: relative;
+}
+.east.leg,
+.east.base {
+  transform: translateX(-15em);
+}
+.west.leg,
+.west.base {
+  transform: translateX(15em);
+}
+.leg .face {
+  background-color: beige;
+  height: 30em;
+  outline: 1px solid magenta;
+  position: absolute;
+  width: 10em;
+}
+.leg .face.north {
+  transform: translateZ(5em);
+}
+.leg .face.west {
+  transform: rotateY(90deg) translateZ(5em);
+}
+.leg .face.east {
+  transform: rotateY(-90deg) translateZ(5em);
+}
+.base .face {
+  background-color: beige;
+  outline: 1px solid cyan;
+  position: absolute;
+  height: 2em;
+  width: 12em;
+}
