@@ -1,15 +1,21 @@
 @font-face {
-  font-family: 'Atkinson Hyperlegible';
+  font-family: 'Atkinson';
+  font-style: normal;
+  font-weight: normal;
   src: url('/fonts/atkinson-hyperlegible/regular.woff2') format('woff2'),
     url('/fonts/atkinson-hyperlegible/regular.woff') format('woff');
 }
 @font-face {
-  font-family: 'Atkinson Hyperlegible Bold';
+  font-family: 'Atkinson';
+  font-style: normal;
+  font-weight: bold;
   src: url('/fonts/atkinson-hyperlegible/bold.woff2') format('woff2'),
     url('/fonts/atkinson-hyperlegible/bold.woff') format('woff');
 }
 @font-face {
-  font-family: 'Atkinson Hyperlegible Italic';
+  font-family: 'Atkinson';
+  font-style: italic;
+  font-weight: normal;
   src: url('/fonts/atkinson-hyperlegible/italic.woff2') format('woff2'),
     url('/fonts/atkinson-hyperlegible/italic.woff') format('woff');
 }
@@ -23,9 +29,7 @@
   --scale-diminished-fifth: 1.414;
   --scale: var(--scale-minor-third);
 
-  --font-regular: 'Atkinson Hyperlegible', var(--system-font-stack);
-  --font-bold: 'Atkinson Hyperlegible Bold', var(--system-font-stack);
-  --font-italic: 'Atkinson Hyperlegible Italic', var(--system-font-stack);
+  --font-regular: 'Atkinson', var(--system-font-stack);
 
   /* Colors */
 
@@ -124,7 +128,6 @@ h5,
 .h5,
 h6,
 .h6 {
-  font-family: var(--font-bold);
   margin: 0;
 }
 
@@ -198,7 +201,7 @@ h5,
 }
 
 .fontWeight--bold {
-  font-family: var(--font-bold);
+  font-weight: bold;
 }
 
 p,
@@ -264,7 +267,7 @@ a:visited {
 }
 
 .type--italic {
-  font-family: var(--font-italic);
+  font-style: italic;
 }
 
 .display--flex {
@@ -364,7 +367,7 @@ a:visited {
 @media (min-width: 600px) {
   .main__layout {
     flex-direction: row-reverse;
-    flex-grow: 1;
+    flex-grow: 6;
   }
   .main__column.left-margin {
     display: block;

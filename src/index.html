@@ -4,19 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Steven Frieson's Website</title>
-    <!-- <link rel="preload" href="/fonts/atkinson-hyperlegible/regular.woff2" as="font" type="font/woff2">
-    <link rel="preload" href="/fonts/atkinson-hyperlegible/bold.woff2" as="font" type="font/woff2"> -->
+    <link rel="preload" href="/fonts/atkinson-hyperlegible/regular.woff2" as="font" type="font/woff2">
     <link href="/styles.css" rel="stylesheet" type="text/css" id="mainStylesheet">
   </head>
   <body>
     <!-- Header -->
     <a class="skip-content elevation--1 padding--half" href="#main-content">Skip to main content.</a>
-    <script>
+    <!-- <script>
       const baseline = 16 * 1.25 * 1.5;
       var mySVG = `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 ${baseline}' width='1px'><rect x='0px' width='1' y='${baseline - 1}' height='1' fill='#f5df4d' /></svg>`;
       var mySVG64 = window.btoa(mySVG);
-      // document.body.style.backgroundImage = "url('data:image/svg+xml;base64," + mySVG64 + "')";
-    </script>
+      document.body.style.backgroundImage = "url('data:image/svg+xml;base64," + mySVG64 + "')";
+    </script> -->
     <svg class="swash" role="presentation" xmlns="http://www.w3.org/2000/svg" width="1920" height="60" viewBox="0 0 1920 60" preserveAspectRatio="none"><path id="Path_1" data-name="Path 1" d="M0,0H1920V60S1227,24,747,24,0,38,0,38Z" /></svg>
     <!-- Body -->
     <div class="display--flex">
@@ -35,7 +34,6 @@
           <div
             id="theme-switcher"
             role="presentation"
-            style="display: none;"
           >
             <section aria-labelledby="theme-switcher__heading" class="theme-switcher__section padding--x--half">
               <p id="theme-switcher__heading" class="theme-switcher__heading fontWeight--bold position--relative no-newline">Color theme:</p>
@@ -65,18 +63,21 @@
               </p>
             </section>
             <script type="module">
-              const prefersDark = window.matchMedia('(prefers-color-scheme: dark)')
-                .matches;
-              if (prefersDark) {
-                document.getElementById('prefers-dark').checked = true;
-              }
-              const themeSwitcherRoot = document.getElementById('theme-switcher');
-              themeSwitcherRoot.style.display = 'block';
-              import('/js/theme-switcher/index.js').then(
-                ({ default: themeSwitcher }) => {
-                  themeSwitcher(themeSwitcherRoot, prefersDark);
+              /* TODO Check what happens when this doesn't load */
+              window.requestIdleCallback(() => {
+                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)')
+                  .matches;
+                if (prefersDark) {
+                  document.getElementById('prefers-dark').checked = true;
                 }
-              );
+                const themeSwitcherRoot = document.getElementById('theme-switcher');
+                themeSwitcherRoot.style.display = 'block';
+                import('/js/theme-switcher/index.js').then(
+                  ({ default: themeSwitcher }) => {
+                    themeSwitcher(themeSwitcherRoot, prefersDark);
+                  }
+                );
+              });
             </script>
           </div>
         </aside>
