@@ -20,6 +20,7 @@
     "cypress"
   ],
   "rules": {
-    "strict": ["error", "never"]
+    "strict": ["error", "never"],
+    "jsx-quotes": ["error", "double"]
   }
 }
