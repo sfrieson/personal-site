@@ -1,4 +1,5 @@
 @font-face {
+  font-display: swap;
   font-family: 'Atkinson';
   font-style: normal;
   font-weight: normal;
@@ -6,6 +7,7 @@
     url('/fonts/atkinson-hyperlegible/regular.woff') format('woff');
 }
 @font-face {
+  font-display: swap;
   font-family: 'Atkinson';
   font-style: normal;
   font-weight: bold;
@@ -13,6 +15,7 @@
     url('/fonts/atkinson-hyperlegible/bold.woff') format('woff');
 }
 @font-face {
+  font-display: swap;
   font-family: 'Atkinson';
   font-style: italic;
   font-weight: normal;
@@ -65,7 +68,12 @@
   --font-size-5: calc(
     var(--scale) * var(--scale) * var(--scale) * var(--scale) * 1rem
   );
+  --font-size-6: calc(
+    var(--scale) * var(--scale) * var(--scale) * var(--scale) * var(--scale) *
+      1rem
+  );
 }
+
 /* TODO Change px to em */
 @media (min-width: 768px) {
   :root {
@@ -76,23 +84,27 @@
 @media (prefers-color-scheme: light) {
   :root {
     --bgColor-default: var(--color-white);
-    --fontColor--primary: var(--color-black-3);
-    --fontColor--display: var(--color-ultimate-gray);
+    --color-font-primary: var(--color-black-3);
+    --color-font-display: var(--color-ultimate-gray);
     --color-margin-border: var(--color-cloud-dancer);
     --bgColor--panel: var(--color-cloud-dancer);
     --color-link: var(--color-skydiver);
     --color-link--visited: var(--color-purple);
+    --bgColor-selection: var(--color-illuminating);
+    --color-selection: var(--color-white);
   }
 }
 @media screen and (prefers-color-scheme: dark) {
   :root {
     --bgColor-default: var(--color-black-2);
-    --fontColor--primary: var(--color-white);
-    --fontColor--display: var(--color-cloud-dancer);
+    --color-font-primary: var(--color-white);
+    --color-font-display: var(--color-cloud-dancer);
     --color-margin-border: var(--color-black-3);
     --bgColor--panel: var(--color-black-1);
     --color-link: var(--color-illuminating);
     --color-link--visited: var(--color-orange);
+    --bgColor-selection: var(--color-ultimate-gray);
+    --color-selection: var(--color-black-1);
   }
 }
 
@@ -108,7 +120,7 @@ html {
 }
 body {
   background: var(--bgColor-default);
-  color: var(--fontColor--primary);
+  color: var(--color-font-primary);
   margin: 0;
   font-family: var(--font-regular);
   line-height: 1.5rem;
@@ -132,7 +144,8 @@ h6,
 }
 
 h1,
-.h1 {
+.h1,
+.fontSize--5 {
   font-size: var(--font-size-5);
   line-height: 3rem;
   padding-bottom: 0.65rem;
@@ -140,7 +153,8 @@ h1,
 }
 
 h2,
-.h2 {
+.h2,
+.fontSize--4 {
   font-size: var(--font-size-4);
   line-height: 3rem;
   padding-bottom: 0.55rem;
@@ -148,24 +162,34 @@ h2,
 }
 
 h3,
-.h3 {
+.h3,
+.fontSize--3 {
   font-size: var(--font-size-3);
   padding-bottom: 1.2rem;
   padding-top: 0.3rem;
 }
 
 h4,
-.h4 {
+.h4,
+.fontSize--2 {
   font-size: var(--font-size-2);
   padding-bottom: 1.15rem;
   padding-top: 0.35rem;
 }
 
 h5,
-.h5 {
+.h5,
+.fontSize--1 {
   font-size: var(--font-size-1);
   margin-bottom: -0.45rem;
   padding-top: 0.45rem;
+}
+
+.fontSize--6 {
+  font-size: var(--font-size-6);
+  line-height: 3rem;
+  padding-bottom: 0.7rem;
+  padding-top: 0.8rem;
 }
 
 @media (min-width: 768px) {
@@ -173,30 +197,41 @@ h5,
     --scale: var(--scale-diminished-fifth);
   }
   h1,
-  .h1 {
+  .h1,
+  .fontSize--5 {
     line-height: 4.5rem;
     padding-bottom: 0.35rem;
     padding-top: 1.15rem;
   }
 
   h2,
-  .h2 {
+  .h2,
+  .fontSize--4 {
     line-height: 3rem;
     padding-bottom: 0.8rem;
     padding-top: 0.7rem;
   }
 
   h3,
-  .h3 {
+  .h3,
+  .fontSize--3 {
     line-height: 3rem;
     padding-bottom: 0.55rem;
     padding-top: 0.95rem;
   }
 
   h4,
-  .h4 {
+  .h4,
+  .fontSize--2 {
     padding-bottom: 1.15rem;
     padding-top: 0.35rem;
+  }
+
+  .fontSize--6 {
+    font-size: var(--font-size-6);
+    line-height: 4.5rem;
+    padding-bottom: 0.8rem;
+    padding-top: 0.7rem;
   }
 }
 
@@ -207,14 +242,31 @@ h5,
 p,
 ol,
 ul,
-.font--body {
+.font--body,
+.fontSize--1 {
   margin: 0;
   padding-bottom: 1.045rem;
   padding-top: 0.455rem;
   max-width: 70ch;
 }
 
+::selection {
+  background-color: var(--bgColor-selection);
+  color: var(--color-selection);
+}
+
 /* Utility classes */
+/* https://www.a11yproject.com/posts/2013-01-11-how-to-hide-content/ */
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
 .elevation--1 {
   box-shadow: 0 5px 8px -4px rgba(0, 0, 0, 0.25);
 }
@@ -254,12 +306,8 @@ a:visited {
   transition: color var(--transition--theme);
 }
 
-.bgColor--cloud-dancer {
-  background-color: var(--color-cloud-dancer);
-}
-
-.color--white {
-  color: var(--color-white);
+.color--display {
+  color: var(--color-font-display);
 }
 
 .type--bold {
@@ -283,11 +331,11 @@ a:visited {
 }
 
 :root {
-  --fill--swash: --color-illuminating;
+  --fill--swash: var(--color-illuminating);
 }
 .swash {
   display: block;
-  fill: var(--color-illuminating);
+  fill: var(--fill--swash);
   height: 5vw;
   max-height: 60px;
   position: fixed;
@@ -328,9 +376,8 @@ a:visited {
   justify-content: space-between;
 }
 
-/* The fieldset and all the values within are weird */
-.theme-switcher__section {
-  border: none;
+.main__column.links {
+  border-bottom: 1px dashed var(--color-cloud-dancer);
   box-sizing: border-box;
 }
 
@@ -354,12 +401,6 @@ a:visited {
   transition: border-right-color var(--transition--theme);
 }
 
-.nav__container,
-.theme-switcher__section {
-  background-color: var(--bgColor--panel);
-  transition: background-color var(--transition--theme);
-}
-
 .nav__container {
   padding-top: var(--space-default);
 }
@@ -367,16 +408,24 @@ a:visited {
 @media (min-width: 600px) {
   .main__layout {
     flex-direction: row-reverse;
-    flex-grow: 6;
+    flex-grow: 1;
   }
   .main__column.left-margin {
     display: block;
+  }
+  .nav__container,
+  .theme-switcher__section {
+    background-color: var(--bgColor--panel);
+    transition: background-color var(--transition--theme);
+    padding-left: var(--space-half);
+    padding-right: var(--space-half);
   }
   .nav__container {
     height: calc(100vh - 7.5rem);
     padding-top: 3rem;
   }
   .main__column.links {
+    border: none;
     min-width: 10rem;
     max-width: 20rem;
     padding-left: 0;

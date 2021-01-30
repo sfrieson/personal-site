@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Steven Frieson's Website</title>
-    <link rel="preload" href="/fonts/atkinson-hyperlegible/regular.woff2" as="font" type="font/woff2">
+    <meta name="description" content="Learn about Steven's current projects and read articles he's written." />
+    <link rel="preload" href="/fonts/atkinson-hyperlegible/regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     <link href="/styles.css" rel="stylesheet" type="text/css" id="mainStylesheet">
   </head>
   <body>
@@ -22,22 +23,21 @@
       <div class="main__column left-margin"></div>
       <div class="main__layout display--flex">
         <aside class="main__column links padding--x--half position--relative">
-          <nav class="nav__container padding--x--half position--relative">
+          <nav class="nav__container position--relative">
             <p class="nav__links display--flex">
               <a href="/">Home</a>
-              <a href="/blog/index.html">Blog</a>
-              <a href="/career/index.html">Career</a>
-              <a href="/contact.html">Contact</a>
-              <a href="/about/index.html">About this site</a>
+              <a href="/writing/index.html">Writing</a>
+              <a href="/about/index.html">About me</a>
+              <a href="/about/index.html">This site</a>
             </p>
           </nav>
           <div
             id="theme-switcher"
             role="presentation"
           >
-            <section aria-labelledby="theme-switcher__heading" class="theme-switcher__section padding--x--half">
+            <section aria-labelledby="theme-switcher__heading" class="theme-switcher__section">
               <p id="theme-switcher__heading" class="theme-switcher__heading fontWeight--bold position--relative no-newline">Color theme:</p>
-              <p>
+              <p class="position--relative">
                 <label for="prefers-dark" class="theme-switcher__label">
                   Dark</label>
                   <input
@@ -82,9 +82,10 @@
           </div>
         </aside>
         <main class="main main__column padding--x--half">
-          <p>Hi, I am Steven.</p>
-          <h1>Welcome to my website</h1>
+          <h1 class="visually-hidden">Steven Frieson's Website</h1>
           <header>
+            <p class="color--display fontWeight--bold fontSize--6">Hi!</p>
+            <p class="color--display fontWeight--bold fontSize--4">I am Steven.</p>
             <p>
               I am a web developer, and I made this website. It is made with the three
               core web technologies: HTML, CSS, JavaScript. If you would like to learn
