@@ -1,0 +1,445 @@
+@font-face {
+  font-display: swap;
+  font-family: 'Atkinson';
+  font-style: normal;
+  font-weight: normal;
+  src: url('/fonts/atkinson-hyperlegible/regular.woff2') format('woff2'),
+    url('/fonts/atkinson-hyperlegible/regular.woff') format('woff');
+}
+@font-face {
+  font-display: swap;
+  font-family: 'Atkinson';
+  font-style: normal;
+  font-weight: bold;
+  src: url('/fonts/atkinson-hyperlegible/bold.woff2') format('woff2'),
+    url('/fonts/atkinson-hyperlegible/bold.woff') format('woff');
+}
+@font-face {
+  font-display: swap;
+  font-family: 'Atkinson';
+  font-style: italic;
+  font-weight: normal;
+  src: url('/fonts/atkinson-hyperlegible/italic.woff2') format('woff2'),
+    url('/fonts/atkinson-hyperlegible/italic.woff') format('woff');
+}
+/* Custom properties */
+:root {
+  /* https://systemfontstack.com/ */
+  --system-font-stack: -apple-system, BlinkMacSystemFont, avenir next, avenir,
+    helvetica neue, helvetica, Ubuntu, roboto, noto, segoe ui, arial, sans-serif;
+
+  --scale-minor-third: 1.2;
+  --scale-diminished-fifth: 1.414;
+  --scale: var(--scale-minor-third);
+
+  --font-regular: 'Atkinson', var(--system-font-stack);
+
+  /* Colors */
+
+  /* Aviary color pallete - Pantone (https://connect.pantone.com/#/color-of-the-year?language=en) */
+  --color-cloud-dancer: #f0eee9;
+  --color-fruit-dove: #cf5c78;
+  --color-illuminating: #f5df4d; /* Color of the year 2021 */
+  --color-peacock-blue: #00a0b0;
+  --color-skydiver: #00589b;
+  --color-ultimate-gray: #939597; /* Color of the year 2021 */
+
+  --color-black-3: #333;
+  --color-black-2: #222;
+  --color-black-1: #111;
+  --color-purple: #690fa2;
+  --color-orange: #ffba38;
+  --color-white: #fff;
+
+  /* Utilities */
+
+  --transition: 200ms ease-out;
+  --transition--theme: 300ms;
+
+  --space-default: 1.5rem;
+  --space-half: calc(var(--space-default) / 2);
+  --space-quarter: calc(var(--space-default) / 4);
+  --space-double: calc(var(--space-default) * 2);
+
+  --font-size-1: 1rem;
+  --font-size-2: calc(var(--scale) * 1rem);
+  --font-size-3: calc(var(--scale) * var(--scale) * 1rem);
+  --font-size-4: calc(var(--scale) * var(--scale) * var(--scale) * 1rem);
+  --font-size-5: calc(
+    var(--scale) * var(--scale) * var(--scale) * var(--scale) * 1rem
+  );
+  --font-size-6: calc(
+    var(--scale) * var(--scale) * var(--scale) * var(--scale) * var(--scale) *
+      1rem
+  );
+}
+
+/* TODO Change px to em */
+@media (min-width: 768px) {
+  :root {
+    --scale: var(--scale-diminished-fifth);
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bgColor-default: var(--color-white);
+    --color-font-primary: var(--color-black-3);
+    --color-font-display: var(--color-ultimate-gray);
+    --color-margin-border: var(--color-cloud-dancer);
+    --bgColor--panel: var(--color-cloud-dancer);
+    --color-link: var(--color-skydiver);
+    --color-link--visited: var(--color-purple);
+    --bgColor-selection: var(--color-illuminating);
+    --color-selection: var(--color-white);
+  }
+}
+@media screen and (prefers-color-scheme: dark) {
+  :root {
+    --bgColor-default: var(--color-black-2);
+    --color-font-primary: var(--color-white);
+    --color-font-display: var(--color-cloud-dancer);
+    --color-margin-border: var(--color-black-3);
+    --bgColor--panel: var(--color-black-1);
+    --color-link: var(--color-illuminating);
+    --color-link--visited: var(--color-orange);
+    --bgColor-selection: var(--color-ultimate-gray);
+    --color-selection: var(--color-black-1);
+  }
+}
+
+/*
+  Typography
+  Font: Atkinson Hyperlegible - Braille Institute (https://brailleinstitute.org/freefont)
+  Ratio: Minor Third &  Diminshed Fifth - Modular Scale (https://www.modularscale.com/?20&px&1.414)
+  rem: 20px
+  Baseline grid: 30px
+*/
+html {
+  font-size: 125%; /* 20px */
+}
+body {
+  background: var(--bgColor-default);
+  color: var(--color-font-primary);
+  margin: 0;
+  font-family: var(--font-regular);
+  line-height: 1.5rem;
+  transition: background-color var(--transition--theme),
+    color var(--transition--theme);
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+  margin: 0;
+}
+
+h1,
+.h1,
+.fontSize--5 {
+  font-size: var(--font-size-5);
+  line-height: 3rem;
+  padding-bottom: 0.65rem;
+  padding-top: 0.85rem;
+}
+
+h2,
+.h2,
+.fontSize--4 {
+  font-size: var(--font-size-4);
+  line-height: 3rem;
+  padding-bottom: 0.55rem;
+  padding-top: 0.95rem;
+}
+
+h3,
+.h3,
+.fontSize--3 {
+  font-size: var(--font-size-3);
+  padding-bottom: 1.2rem;
+  padding-top: 0.3rem;
+}
+
+h4,
+.h4,
+.fontSize--2 {
+  font-size: var(--font-size-2);
+  padding-bottom: 1.15rem;
+  padding-top: 0.35rem;
+}
+
+h5,
+.h5,
+.fontSize--1 {
+  font-size: var(--font-size-1);
+  margin-bottom: -0.45rem;
+  padding-top: 0.45rem;
+}
+
+.fontSize--6 {
+  font-size: var(--font-size-6);
+  line-height: 3rem;
+  padding-bottom: 0.7rem;
+  padding-top: 0.8rem;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --scale: var(--scale-diminished-fifth);
+  }
+  h1,
+  .h1,
+  .fontSize--5 {
+    line-height: 4.5rem;
+    padding-bottom: 0.35rem;
+    padding-top: 1.15rem;
+  }
+
+  h2,
+  .h2,
+  .fontSize--4 {
+    line-height: 3rem;
+    padding-bottom: 0.8rem;
+    padding-top: 0.7rem;
+  }
+
+  h3,
+  .h3,
+  .fontSize--3 {
+    line-height: 3rem;
+    padding-bottom: 0.55rem;
+    padding-top: 0.95rem;
+  }
+
+  h4,
+  .h4,
+  .fontSize--2 {
+    padding-bottom: 1.15rem;
+    padding-top: 0.35rem;
+  }
+
+  .fontSize--6 {
+    font-size: var(--font-size-6);
+    line-height: 4.5rem;
+    padding-bottom: 0.8rem;
+    padding-top: 0.7rem;
+  }
+}
+
+.fontWeight--bold {
+  font-weight: bold;
+}
+
+p,
+ol,
+ul,
+.font--body,
+.fontSize--1 {
+  margin: 0;
+  padding-bottom: 1.045rem;
+  padding-top: 0.455rem;
+  max-width: 70ch;
+}
+
+::selection {
+  background-color: var(--bgColor-selection);
+  color: var(--color-selection);
+}
+
+/* Utility classes */
+/* https://www.a11yproject.com/posts/2013-01-11-how-to-hide-content/ */
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.elevation--1 {
+  box-shadow: 0 5px 8px -4px rgba(0, 0, 0, 0.25);
+}
+
+.padding--none {
+  padding: 0;
+}
+.padding {
+  padding: var(--space-default);
+}
+
+.padding--x {
+  padding-left: var(--space-default);
+  padding-right: var(--space-default);
+}
+
+.padding--half {
+  padding: var(--space-half);
+}
+
+.padding--x--half {
+  padding-left: var(--space-half);
+  padding-right: var(--space-half);
+}
+
+.padding--x--quarter {
+  padding-left: var(--space-quarter);
+  padding-right: var(--space-quarter);
+}
+
+a {
+  color: var(--color-link);
+  transition: color var(--transition--theme);
+}
+a:visited {
+  color: var(--color-link--visited);
+  transition: color var(--transition--theme);
+}
+
+.color--display {
+  color: var(--color-font-display);
+}
+
+.type--bold {
+  font-family: var(--font-bold);
+}
+
+.type--italic {
+  font-style: italic;
+}
+
+.display--flex {
+  display: flex;
+}
+
+.position--relative {
+  position: relative;
+}
+
+.no-newline {
+  margin-bottom: -1.5rem;
+}
+
+:root {
+  --fill--swash: var(--color-illuminating);
+}
+.swash {
+  display: block;
+  fill: var(--fill--swash);
+  height: 5vw;
+  max-height: 60px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+[id] {
+  /* Headers clear the .yellow-banner */
+  scroll-margin-top: 3rem;
+}
+
+.skip-content {
+  background-color: white;
+  left: 1rem;
+  position: absolute;
+  top: 0;
+  transform: translateY(-120%); /* 20% extra hides the box shadow. */
+  z-index: 2;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .skip-content {
+    transition: transform var(--transition);
+  }
+}
+
+.skip-content:focus {
+  transform: translateY(0%);
+}
+
+.main__layout {
+  flex-direction: column;
+}
+
+.nav__links {
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.main__column.links {
+  border-bottom: 1px dashed var(--color-cloud-dancer);
+  box-sizing: border-box;
+}
+
+.theme-theme-switcher__heading {
+  padding: 2.5rem 0 0;
+  margin-bottom: -0.4rem;
+}
+.theme-switcher__input {
+  transform: translateY(-0.25em);
+}
+.theme-switcher__label {
+  display: inline-block;
+  margin-top: -1.5rem;
+}
+
+.main__column.left-margin {
+  display: none;
+  width: 20vw;
+  max-width: 8.5rem;
+  border-right: 1px dashed var(--color-margin-border);
+  transition: border-right-color var(--transition--theme);
+}
+
+.nav__container {
+  padding-top: var(--space-default);
+}
+
+@media (min-width: 600px) {
+  .main__layout {
+    flex-direction: row-reverse;
+    flex-grow: 1;
+  }
+  .main__column.left-margin {
+    display: block;
+  }
+  .nav__container,
+  .theme-switcher__section {
+    background-color: var(--bgColor--panel);
+    transition: background-color var(--transition--theme);
+    padding-left: var(--space-half);
+    padding-right: var(--space-half);
+  }
+  .nav__container {
+    height: calc(100vh - 7.5rem);
+    padding-top: 3rem;
+  }
+  .main__column.links {
+    border: none;
+    min-width: 10rem;
+    max-width: 20rem;
+    padding-left: 0;
+    padding-right: 0;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    flex: 1 0 auto;
+  }
+  .main__column.main {
+    padding-top: 3rem;
+    flex-grow: 2;
+  }
+  .nav__links {
+    flex-direction: column;
+  }
+}
