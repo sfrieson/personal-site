@@ -1,3 +1,4 @@
+const defaultOn = false;
 const baseline = 16 * 1.25 * 1.5;
 var mySVG = `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 ${baseline}' width='1px'><rect x='0px' width='1' y='${
   baseline - 1
@@ -7,7 +8,7 @@ const toggleImage = {
   false: '',
   true: `url('data:image/svg+xml;base64,${mySVG64}')`,
 };
-document.body.style.backgroundImage = toggleImage.true;
+document.body.style.backgroundImage = toggleImage[defaultOn];
 document.body.addEventListener('keydown', (ev) => {
   console.log(ev);
   if (ev.metaKey && ev.key === 'b') {
