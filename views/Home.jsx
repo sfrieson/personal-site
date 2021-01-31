@@ -7,6 +7,8 @@ const Swash = require('./components/Swash');
 const { Skip, Content } = require('./components/SkipToContent');
 const Nav = require('./components/Nav');
 const ThemeSwitcher = require('./components/ThemeSwitcher');
+const Article = require('./components/Article');
+
 function HelloMessage({ title, description, markdown }) {
   return (
     <HTML>
@@ -23,7 +25,7 @@ function HelloMessage({ title, description, markdown }) {
               <ThemeSwitcher />
             </aside>
             <Content className="main main__column padding--x--half">
-              <div dangerouslySetInnerHTML={{ __html: marked(markdown) }} />
+              <Article markdown={markdown} />
             </Content>
           </div>
         </div>
