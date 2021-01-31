@@ -53,7 +53,9 @@
 
   /* Utilities */
 
-  --transition: 200ms ease-out;
+  --transition-duration: 200ms;
+  --transition-timing: ease-out;
+  --transition: var(--transition-duration) var(--transition-timing);
   --transition--theme: 300ms;
 
   --space-default: 1.5rem;
@@ -350,21 +352,24 @@ a:visited {
 }
 
 .skip-content {
-  background-color: white;
+  background-color: var(--bgColor--panel);
   left: 1rem;
   position: absolute;
   top: 0;
   transform: translateY(-120%); /* 20% extra hides the box shadow. */
   z-index: 2;
+  transition-property: transform;
+  transition-delay: 500ms;
 }
 @media (prefers-reduced-motion: no-preference) {
   .skip-content {
-    transition: transform var(--transition);
+    transition-duration: var(--transition-duration);
   }
 }
 
 .skip-content:focus {
   transform: translateY(0%);
+  transition-delay: 0ms;
 }
 
 .main__layout {
@@ -416,6 +421,8 @@ a:visited {
   .nav__container,
   .theme-switcher__section {
     background-color: var(--bgColor--panel);
+    --transition-duration: 200ms;
+
     transition: background-color var(--transition--theme);
     padding-left: var(--space-half);
     padding-right: var(--space-half);
