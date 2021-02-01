@@ -29,7 +29,7 @@ module.exports = async function routine() {
           parsedFilepath.dir.replace('src/pages', ''),
           parsedFilepath.name + '.html'
         ),
-        renderTemplateToStream(template, md)
+        '<!DOCTYPE html>\n' + renderTemplateToStream(template, md)
       );
     })
   );
