@@ -33,7 +33,6 @@ export default function (rootEl, prefersDark) {
   for (let i = 0; i < inputs.length; i++) {
     const input = inputs[i];
     input.disabled = false;
-    if (input.value === active) input.checked = true;
   }
   rootEl.addEventListener('change', (event) => {
     const changeTo = event.target.value;
