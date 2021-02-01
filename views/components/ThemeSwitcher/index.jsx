@@ -1,6 +1,5 @@
 const React = require('react');
 
-const requireScript = require('../../utils/requireScript');
 module.exports = function ThemeSwitcher() {
   return (
     <div id="theme-switcher" role="presentation">
@@ -42,7 +41,7 @@ module.exports = function ThemeSwitcher() {
       <script
         type="module"
         dangerouslySetInnerHTML={{
-          __html: requireScript(__dirname, 'script.js'),
+          __html: require('./script.script'),
         }}
       />
     </div>

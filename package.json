@@ -2,7 +2,6 @@
   "name": "stevenfrieson",
   "version": "1.0.0",
   "description": "Development tools for my website",
-  "main": "index.js",
   "directories": {
     "doc": "docs"
   },
@@ -23,16 +22,26 @@
   "dependencies": {
     "@testing-library/cypress": "^7.0.0",
     "@testing-library/dom": "^7.24.2",
-    "cypress": "^5.2.0",
+    "cypress": "^4.8.0",
     "eslint": "^7.9.0",
     "eslint-plugin-cypress": "^2.11.1",
     "eslint-plugin-jest": "^24.0.2",
     "jest": "^26.4.2"
   },
   "devDependencies": {
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.12.11",
+    "@babel/preset-react": "^7.12.10",
+    "assets-webpack-plugin": "^7.0.0",
+    "babel-loader": "^8.2.2",
     "eslint-config-prettier": "^6.11.0",
     "express": "^4.17.1",
     "express-react-views": "^0.11.0",
-    "marked": "^1.2.8"
+    "glob": "^7.1.6",
+    "marked": "^1.2.8",
+    "mkdirp": "^0.5.5",
+    "react-dom": "^16.14.0",
+    "webpack": "^5.19.0",
+    "webpack-cli": "^4.4.0"
   }
 }

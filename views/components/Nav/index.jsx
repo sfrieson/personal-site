@@ -1,6 +1,6 @@
 const React = require('react');
 
-const navLinks = require('./links.json');
+const navLinks = require('./links.js');
 
 module.exports = function Nav() {
   return (
