@@ -1,3 +1,9 @@
+---
+title: Steven Frieson's Website
+description: Learn about Steven's current projects and read articles he's written.
+template: Home
+---
+
 <h1 class="visually-hidden">Steven Frieson's Website</h1>
 <p class="color--display fontWeight--bold fontSize--6">Hi!</p>
 <p class="color--display fontWeight--bold fontSize--4">I am Steven.</p>
