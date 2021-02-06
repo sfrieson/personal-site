@@ -1,6 +1,7 @@
 const React = require('react');
+const PropTypes = require('prop-types');
 
-module.exports = function Head({
+function Head({
   title = "Steven Frieson's Website",
   description = "Learn about Steven's current projects and read articles he's written.",
 }) {
@@ -18,11 +19,18 @@ module.exports = function Head({
         crossOrigin="anonymous"
       />
       <link
-        href="/styles.css"
+        href="../styles.css"
         rel="stylesheet"
         type="text/css"
         id="mainStylesheet"
       />
     </head>
   );
+}
+
+Head.propTypes = {
+  title: PropTypes.string,
+  description: PropTypes.string,
 };
+
+module.exports = Head;

@@ -1,26 +1,35 @@
 {
   "parserOptions": {
-    "ecmaVersion": 2015,
+    "ecmaVersion": 12,
     "sourceType": "module"
   },
   "env": {
     // "jest/globals": true,
     "cypress/globals": true,
-    "node": true
+    "node": true,
+    "es6": true
   },
   "extends": [
     "eslint:recommended",
     "eslint-config-prettier",
     // "plugin:jest/recommended",
     // "plugin:jest/style",
-    "plugin:cypress/recommended"
+    "plugin:cypress/recommended",
+    "plugin:react/recommended"
   ],
   "plugins": [
     // "jest",
-    "cypress"
+    "cypress",
+    "react"
   ],
   "rules": {
     "strict": ["error", "never"],
-    "jsx-quotes": ["error", "double"]
+    "jsx-quotes": ["error", "prefer-double"]
+  },
+  "settings": {
+    "react": {
+      "pragma": "React",
+      "version": "detect"
+    }
   }
 }

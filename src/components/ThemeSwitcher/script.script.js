@@ -7,7 +7,6 @@ window.requestIdleCallback(() => {
     darkRadio.checked = true;
   }
   const themeSwitcherRoot = document.getElementById('theme-switcher');
-  themeSwitcherRoot.style.display = 'block';
   prefersDark.addEventListener('change', (changeEvent) => {
     if (changeEvent.target.matches) {
       darkRadio.checked = true;
@@ -16,6 +15,7 @@ window.requestIdleCallback(() => {
     }
   });
   import('/js/theme-switcher/index.js').then(({ default: themeSwitcher }) => {
+    themeSwitcherRoot.style.display = 'block';
     themeSwitcher(themeSwitcherRoot, prefersDark.matches);
   });
 });

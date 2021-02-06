@@ -3,24 +3,24 @@
   font-family: 'Atkinson';
   font-style: normal;
   font-weight: normal;
-  src: url('/fonts/atkinson-hyperlegible/regular.woff2') format('woff2'),
-    url('/fonts/atkinson-hyperlegible/regular.woff') format('woff');
+  src: url('./fonts/atkinson-hyperlegible/regular.woff2') format('woff2'),
+    url('./fonts/atkinson-hyperlegible/regular.woff') format('woff');
 }
 @font-face {
   font-display: swap;
   font-family: 'Atkinson';
   font-style: normal;
   font-weight: bold;
-  src: url('/fonts/atkinson-hyperlegible/bold.woff2') format('woff2'),
-    url('/fonts/atkinson-hyperlegible/bold.woff') format('woff');
+  src: url('./fonts/atkinson-hyperlegible/bold.woff2') format('woff2'),
+    url('./fonts/atkinson-hyperlegible/bold.woff') format('woff');
 }
 @font-face {
   font-display: swap;
   font-family: 'Atkinson';
   font-style: italic;
   font-weight: normal;
-  src: url('/fonts/atkinson-hyperlegible/italic.woff2') format('woff2'),
-    url('/fonts/atkinson-hyperlegible/italic.woff') format('woff');
+  src: url('./fonts/atkinson-hyperlegible/italic.woff2') format('woff2'),
+    url('./fonts/atkinson-hyperlegible/italic.woff') format('woff');
 }
 /* Custom properties */
 :root {
@@ -386,9 +386,8 @@ a:visited {
   box-sizing: border-box;
 }
 
-.theme-theme-switcher__heading {
-  padding: 2.5rem 0 0;
-  margin-bottom: -0.4rem;
+.theme-switcher__container {
+  min-height: 4.5rem;
 }
 .theme-switcher__input {
   transform: translateY(-0.25em);
@@ -419,10 +418,8 @@ a:visited {
     display: block;
   }
   .nav__container,
-  .theme-switcher__section {
+  .theme-switcher__container {
     background-color: var(--bgColor--panel);
-    --transition-duration: 200ms;
-
     transition: background-color var(--transition--theme);
     padding-left: var(--space-half);
     padding-right: var(--space-half);

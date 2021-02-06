@@ -1,3 +1,4 @@
+const PropTypes = require('prop-types');
 const React = require('react');
 
 function Skip() {
@@ -16,5 +17,14 @@ function Content({ children, as = 'main', className }) {
     </Main>
   );
 }
+
+Content.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.node,
+    PropTypes.arrayOf(PropTypes.node),
+  ]).isRequired,
+  as: PropTypes.oneOfType([PropTypes.string, PropTypes.elementType]),
+  className: PropTypes.string,
+};
 
 module.exports = { Skip, Content };

@@ -2,14 +2,15 @@ const React = require('react');
 
 module.exports = function ThemeSwitcher() {
   return (
-    <div id="theme-switcher" role="presentation">
+    <div className="theme-switcher__container" role="presentation">
       <section
+        id="theme-switcher"
         aria-labelledby="theme-switcher__heading"
-        className="theme-switcher__section"
+        style={{ display: 'none' }}
       >
         <p
           id="theme-switcher__heading"
-          className="theme-switcher__heading fontWeight--bold position--relative no-newline"
+          className="fontWeight--bold position--relative no-newline"
         >
           Color theme:
         </p>

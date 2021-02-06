@@ -1,13 +1,13 @@
-const marked = require('marked');
+const PropTypes = require('prop-types');
 const React = require('react');
-const HTML = require('./components/HTML');
-const Head = require('./components/Head');
-const Baseline = require('./components/Baseline');
-const Swash = require('./components/Swash');
-const { Skip, Content } = require('./components/SkipToContent');
-const Nav = require('./components/Nav');
-const ThemeSwitcher = require('./components/ThemeSwitcher');
-const Article = require('./components/Article');
+const HTML = require('../components/HTML');
+const Head = require('../components/Head');
+const Baseline = require('../components/Baseline');
+const Swash = require('../components/Swash');
+const { Skip, Content } = require('../components/SkipToContent');
+const Nav = require('../components/Nav');
+const ThemeSwitcher = require('../components/ThemeSwitcher');
+const Article = require('../components/Article');
 
 function HelloMessage({ title, description, markdown }) {
   return (
@@ -33,5 +33,11 @@ function HelloMessage({ title, description, markdown }) {
     </HTML>
   );
 }
+
+HelloMessage.propTypes = {
+  title: PropTypes.string,
+  description: PropTypes.string,
+  markdown: PropTypes.string.isRequired,
+};
 
 module.exports = HelloMessage;

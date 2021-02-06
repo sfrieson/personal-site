@@ -1,14 +1,17 @@
 const path = require('path');
-var AssetsPlugin = require('assets-webpack-plugin');
+const glob = require('glob');
+const renderTemplate = require('../.build/render');
 
-const root = path.resolve(__dirname, '..');
-const buildRoot = path.join(root, '.build');
+const root = path.resolve(__dirname, '..', 'src', 'pages');
+const buildRoot = path.join(__dirname, '..', '.build');
+
 module.exports = {
   context: root,
-  entry: {
-    'template/Home': '/views/Home.jsx',
-    'markdown-assets': '/.build/markdown-assets.js',
-  },
+  // entry: {
+  //   // 'template/Home': '/views/Home.jsx',
+  //   // 'markdown-assets': '/.build/markdown-assets.js',
+  // },
+  entry: glob.sync('/**/*.md', { root: './src' }),
   module: {
     rules: [
       {
@@ -20,6 +23,34 @@ module.exports = {
         test: /\.script\.js$/,
         type: 'asset/source',
       },
+      {
+        test: /\.woff2?$/,
+        use: [{ loader: 'file-loader' }],
+      },
+      {
+        test: /\.css$/,
+        use: [
+          { loader: 'file-loader', options: { name: '[name].css' } },
+          'extract-loader',
+          'css-loader',
+        ],
+      },
+      {
+        test: /\.md$/,
+        use: [
+          { loader: 'file-loader', options: { name: '[path][name].html' } },
+          'extract-loader',
+          {
+            loader: 'html-loader',
+            options: {
+              attributes: true,
+              preprocessor: (file) => {
+                return renderTemplate(file);
+              },
+            },
+          },
+        ],
+      },
     ],
   },
   resolve: {
@@ -27,8 +58,12 @@ module.exports = {
   },
   output: {
     path: buildRoot,
-    filename: '[name].js',
-    libraryTarget: 'commonjs2',
+    publicPath: '/',
+    // filename: (pathData) => {
+    //   console.log(pathData);
+    //   if (pathData.runtime === 'pages') return '[name].html';
+    //   return '[name].html2';
+    // },
+    // libraryTarget: 'commonjs2',
   },
-  target: 'node',
 };
