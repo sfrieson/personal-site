@@ -35,5 +35,20 @@ module.exports = {
       },
       __key: 'pages',
     },
+    {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        trackingIds: [
+          'UA-16686332-1', // Google Analytics
+        ],
+        gtagConfig: {
+          anonymize_ip: true,
+          cookie_expires: 0,
+        },
+        pluginConfig: {
+          respectDNT: true,
+        },
+      },
+    },
   ],
 };
