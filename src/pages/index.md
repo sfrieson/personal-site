@@ -15,3 +15,5 @@ More specifically, I'm a front end developer working predominantly in the web te
 I hope this website can be informative for you. Continue to check back because, as most things in development, this site is an iterative process.
 
 Steven 😜
+
+![Steven's Headshot](./headshot-2021.jpg)

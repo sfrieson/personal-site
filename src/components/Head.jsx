@@ -19,7 +19,7 @@ function Head({
         crossOrigin="anonymous"
       />
       <link
-        href="../styles.css"
+        href={require('../styles.css')}
         rel="stylesheet"
         type="text/css"
         id="mainStylesheet"

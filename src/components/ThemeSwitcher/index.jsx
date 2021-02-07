@@ -42,7 +42,7 @@ module.exports = function ThemeSwitcher() {
       <script
         type="module"
         dangerouslySetInnerHTML={{
-          __html: require('./script.script'),
+          __html: require('babel-loader!./script?inline'),
         }}
       />
     </div>
