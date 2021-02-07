@@ -1,4 +1,0 @@
-{
-  "jest.pathToConfig": "./jest.config.js",
-  "jest.rootPath": "./src"
-}
