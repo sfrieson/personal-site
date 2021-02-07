@@ -1,0 +1,26 @@
+{
+  "parserOptions": {
+    "ecmaVersion": 2015,
+    "sourceType": "module"
+  },
+  "env": {
+    "browser": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "eslint-config-prettier",
+    "plugin:react/recommended"
+  ],
+  "rules": {
+    "strict": ["error", "never"],
+    "jsx-quotes": ["error", "prefer-double"],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
+  },
+  "plugins": ["prettier", "react", "react-hooks", "jsx-a11y"],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  }
+}
