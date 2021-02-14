@@ -325,6 +325,10 @@ a:visited {
   display: flex;
 }
 
+.display--grid {
+  display: grid;
+}
+
 .position--relative {
   position: relative;
 }
@@ -415,8 +419,14 @@ a:visited {
     flex-direction: row-reverse;
     flex-grow: 1;
   }
+  .main-content {
+    grid-template-columns: minmax(auto, 65ch) 1fr;
+  }
   .main__column.left-margin {
     display: block;
+    min-width: 10px;
+    max-width: 8.5rem;
+    flex: 0 2 auto;
   }
   .nav__container,
   .theme-switcher__container {

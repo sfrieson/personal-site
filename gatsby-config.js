@@ -5,6 +5,7 @@ module.exports = {
       "Learn about Steven's current projects and read articles he's written.",
     siteUrl: 'https://stevenfrieson.com',
     twitterUsername: '@stevenfrieson',
+    pathPrefix: '/',
   },
   plugins: [
     'gatsby-plugin-sharp',

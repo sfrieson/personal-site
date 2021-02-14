@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'gatsby';
 
 import navLinks from './links.js';
 
@@ -8,9 +9,9 @@ export default function Nav() {
       <p className="nav__links display--flex">
         {!!navLinks.length &&
           navLinks.map(({ href, text }) => (
-            <a key={text} href={href}>
+            <Link key={text} to={href}>
               {text}
-            </a>
+            </Link>
           ))}
       </p>
     </nav>

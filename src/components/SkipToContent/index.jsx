@@ -12,8 +12,12 @@ export function Skip() {
 export function Content({ children, as = 'main', className }) {
   const Main = as;
   return (
-    <Main id="main-content" className={className}>
-      {children}
+    <Main
+      id="main-content"
+      className={'display--grid main-content ' + className}
+    >
+      <div>{children}</div>
+      <div className="content-margin"></div>
     </Main>
   );
 }
