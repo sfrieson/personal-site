@@ -5,10 +5,10 @@ import { Link, graphql } from 'gatsby';
 import MainLayout from '../../layouts/Main';
 
 export const pageQuery = graphql`
-  query MyQuery {
+  query RecentWriting {
     allMdx(
-      filter: { slug: { glob: "writing/*" } }
       sort: { fields: frontmatter___date, order: DESC }
+      filter: { slug: { ne: "" } }
     ) {
       edges {
         node {
@@ -32,7 +32,7 @@ function WritingIndex({ data }) {
       <ol>
         {data.allMdx.edges.map(({ node }) => (
           <li key={node.id}>
-            <Link to={'/' + node.slug}>{node.frontmatter.title}</Link>
+            <Link to={'/writing/' + node.slug}>{node.frontmatter.title}</Link>
             {node.frontmatter.synopsis && <p>{node.frontmatter.synopsis}</p>}
           </li>
         ))}

@@ -9,7 +9,7 @@ import useBaseline from '../hooks/useBaseline';
 
 import '../styles.css';
 
-function HomeTemplate({ children }) {
+function MainTemplate({ children }) {
   useBaseline();
   return (
     <>
@@ -31,11 +31,11 @@ function HomeTemplate({ children }) {
   );
 }
 
-HomeTemplate.propTypes = {
+MainTemplate.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.node,
     PropTypes.arrayOf(PropTypes.nodoe),
   ]),
 };
 
-export default HomeTemplate;
+export default MainTemplate;

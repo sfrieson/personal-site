@@ -22,7 +22,10 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-mdx',
       options: {
-        defaultLayouts: { default: require.resolve('./src/layouts/Main.jsx') },
+        defaultLayouts: {
+          default: require.resolve('./src/layouts/Main.jsx'),
+          writing: require.resolve('./src/layouts/Writing.jsx'),
+        },
         gatsbyRemarkPlugins: [
           {
             resolve: `gatsby-remark-images`,
@@ -43,18 +46,19 @@ module.exports = {
       __key: 'images',
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: 'writing',
+        path: `./src/pages/writing`,
+      },
+    },
+    {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'pages',
         path: './src/pages/',
       },
       __key: 'pages',
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `./src/pages/writing/`,
-      },
     },
     {
       resolve: `gatsby-plugin-google-gtag`,
