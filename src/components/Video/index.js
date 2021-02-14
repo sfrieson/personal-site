@@ -1,28 +1,35 @@
 import PropTypes from 'prop-types';
 
-import React, { useState } from 'react';
-const useShouldAutoPlay = (autoPlay) => {
-  const [shouldAutoPlay] = useState(() => {
+import React, { useEffect, useRef } from 'react';
+
+const useShouldAutoPlay = (autoPlay, ref) => {
+  useEffect(() => {
     if (!autoPlay) {
-      return false;
+      return;
+    }
+
+    if (!ref.current) {
+      return;
     }
 
     const query = window.matchMedia('(prefers-reduced-motion: reduce)');
     if (query.matches) {
-      return false;
+      return;
     }
 
-    return true;
-  });
-
-  return shouldAutoPlay;
+    if (ref.current.play) {
+      ref.current.play();
+    }
+  }, [autoPlay, ref]);
 };
 
 function Video({ autoPlay, muted, ...props }) {
-  const shouldAutoPlay = useShouldAutoPlay(autoPlay);
+  const videoRef = useRef();
+  const shouldAutoPlay = useShouldAutoPlay(autoPlay, videoRef);
 
   return (
     <video
+      ref={videoRef}
       {...props}
       autoPlay={shouldAutoPlay}
       muted={muted || shouldAutoPlay}
