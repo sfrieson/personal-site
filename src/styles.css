@@ -324,9 +324,15 @@ a:visited {
 .display--flex {
   display: flex;
 }
+.justify--spaceBetween {
+  justify-content: space-between;
+}
 
 .display--grid {
   display: grid;
+}
+.display--none {
+  display: none;
 }
 
 .position--relative {
@@ -351,7 +357,7 @@ a:visited {
   z-index: 1;
 }
 
-[id] {
+main [id] {
   /* Headers clear the .yellow-banner */
   scroll-margin-top: 3rem;
 }
@@ -389,17 +395,35 @@ a:visited {
 .main__column.links {
   border-bottom: 1px dashed var(--color-cloud-dancer);
   box-sizing: border-box;
+  padding-top: var(--space-default);
 }
 
 .theme-switcher__container {
-  min-height: 4.5rem;
-}
-.theme-switcher__input {
-  transform: translateY(-0.25em);
-}
-.theme-switcher__label {
   display: inline-block;
-  margin-top: -1.5rem;
+}
+
+.theme-switcher__label {
+  display: block;
+  z-index: 0;
+}
+
+.theme-switcher__label:after {
+  bottom: 0;
+  content: ' ';
+  display: block;
+  left: -0.5em;
+  position: absolute;
+  right: -0.5em;
+  top: 0;
+  z-index: -1;
+  border-radius: 1em;
+}
+
+input:checked + .theme-switcher__label--dark:after {
+  background-color: var(--color-skydiver);
+}
+input:checked + .theme-switcher__label--light:after {
+  background-color: var(--color-illuminating);
 }
 
 .main__column.left-margin {
@@ -408,10 +432,6 @@ a:visited {
   max-width: 8.5rem;
   border-right: 1px dashed var(--color-margin-border);
   transition: border-right-color var(--transition--theme);
-}
-
-.nav__container {
-  padding-top: var(--space-default);
 }
 
 @media (min-width: 600px) {
@@ -428,27 +448,24 @@ a:visited {
     max-width: 8.5rem;
     flex: 0 2 auto;
   }
-  .nav__container,
-  .theme-switcher__container {
-    background-color: var(--bgColor--panel);
-    transition: background-color var(--transition--theme);
-    padding-left: var(--space-half);
-    padding-right: var(--space-half);
-  }
-  .nav__container {
-    height: calc(100vh - 7.5rem);
-    padding-top: 3rem;
-  }
   .main__column.links {
     border: none;
     min-width: 10rem;
     max-width: 20rem;
-    padding-left: 0;
-    padding-right: 0;
+    padding-top: 3rem;
+    padding-bottom: 1.5rem;
     height: 100vh;
     position: sticky;
     top: 0;
     flex: 1 0 auto;
+    background-color: var(--bgColor--panel);
+    transition: background-color var(--transition--theme);
+  }
+  .aside {
+    background-color: var(--bgColor--panel);
+    grid-template-rows: 1fr max-content;
+    height: 100%;
+    transition: background-color var(--transition--theme);
   }
   .main__column.main {
     padding-top: 3rem;

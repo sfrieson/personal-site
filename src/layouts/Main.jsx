@@ -18,9 +18,13 @@ function MainTemplate({ children }) {
       <div className="display--flex">
         <div className="main__column left-margin"></div>
         <div className="main__layout display--flex">
-          <aside className="main__column links padding--x--half position--relative">
-            <Nav />
-            <ThemeSwitcher />
+          <aside className="main__column links padding--x--half">
+            <div className="display--grid aside">
+              <Nav />
+              <div>
+                <ThemeSwitcher />
+              </div>
+            </div>
           </aside>
           <Content className="main main__column padding--x--half">
             {children}

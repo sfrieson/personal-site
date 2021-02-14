@@ -6,21 +6,23 @@ const DARK = 'dark';
 const LIGHT = 'light';
 
 function useThemeSwitcher() {
-  const { isMatching } = useMedia(`(prefers-color-theme: ${DARK})`);
-  const [userPreference, setUserPreference] = useState(null);
+  const { isMatching } = useMedia(`(prefers-color-scheme: ${DARK})`);
+  const [selectedPreference, selectPreference] = useState(null);
   const addedRuleIndex = useRef();
-  const onUserPreferenceChange = useCallback((e) => {
-    setUserPreference(e.target.value);
+  const handleSelectPreference = useCallback((e) => {
+    selectPreference(e.target.value);
   }, []);
 
   useEffect(() => {
-    if (!userPreference) return;
+    if (!selectedPreference) return;
     const styleSheet = document.styleSheets[0];
     const mediaRule = Array.prototype.find.call(
       styleSheet.rules,
       (rule) =>
         rule.type === CSSStyleRule.MEDIA_RULE &&
-        rule.conditionText.includes(`(prefers-color-scheme: ${userPreference})`)
+        rule.conditionText.includes(
+          `(prefers-color-scheme: ${selectedPreference})`
+        )
     );
     const themeCssText = mediaRule.cssRules[0].style.cssText;
     if (addedRuleIndex.current) styleSheet.deleteRule(addedRuleIndex.current);
@@ -28,12 +30,12 @@ function useThemeSwitcher() {
       `:root { ${themeCssText} }`,
       styleSheet.rules.length
     );
-  }, [userPreference]);
+  }, [selectedPreference]);
 
   let currentPreference;
   switch (true) {
-    case userPreference !== null:
-      currentPreference = userPreference;
+    case selectedPreference !== null:
+      currentPreference = selectedPreference;
       break;
     case isMatching === true:
       currentPreference = DARK;
@@ -45,53 +47,60 @@ function useThemeSwitcher() {
       currentPreference = null;
   }
 
-  return { currentPreference, onUserPreferenceChange };
+  return { currentPreference, handleSelectPreference };
 }
 
 export default function ThemeSwitcher() {
-  const { currentPreference, onUserPreferenceChange } = useThemeSwitcher();
+  const { currentPreference, handleSelectPreference } = useThemeSwitcher();
   return (
-    <div className="theme-switcher__container" role="presentation">
-      <section
-        id="theme-switcher"
-        aria-labelledby="theme-switcher__heading"
-        style={{ display: currentPreference ? 'block' : 'none' }}
+    <section
+      id="theme-switcher"
+      aria-labelledby="theme-switcher__heading"
+      className={
+        currentPreference ? 'theme-switcher__container' : 'display--none'
+      }
+      role="presentation"
+    >
+      <div
+        id="theme-switcher__heading"
+        className="fontWeight--bold position--relative no-newlin"
       >
-        <p
-          id="theme-switcher__heading"
-          className="fontWeight--bold position--relative no-newline"
+        Color theme:
+      </div>
+      <div className="display--flex justify--spaceBetween">
+        <input
+          id="prefers-dark"
+          className="visually-hidden"
+          name="color-theme"
+          type="radio"
+          value="dark"
+          checked={currentPreference === DARK}
+          onChange={handleSelectPreference}
+          disabled={!currentPreference}
+        />
+        <label
+          htmlFor="prefers-dark"
+          className="theme-switcher__label theme-switcher__label--dark position--relative"
         >
-          Color theme:
-        </p>
-        <p className="position--relative">
-          <label htmlFor="prefers-dark" className="theme-switcher__label">
-            Dark
-          </label>
-          <input
-            id="prefers-dark"
-            className="theme-switcher__input"
-            name="color-theme"
-            type="radio"
-            value="dark"
-            checked={currentPreference === DARK}
-            onChange={onUserPreferenceChange}
-            disabled={!currentPreference}
-          />{' '}
-          <label htmlFor="prefers-light" className="theme-switcher__label">
-            Light
-          </label>
-          <input
-            id="prefers-light"
-            className="theme-switcher__input"
-            name="color-theme"
-            type="radio"
-            value="light"
-            checked={currentPreference === LIGHT}
-            onChange={onUserPreferenceChange}
-            disabled={!currentPreference}
-          />
-        </p>
-      </section>
-    </div>
+          Dark
+        </label>
+        <input
+          id="prefers-light"
+          className="visually-hidden"
+          name="color-theme"
+          type="radio"
+          value="light"
+          checked={currentPreference === LIGHT}
+          onChange={handleSelectPreference}
+          disabled={!currentPreference}
+        />
+        <label
+          htmlFor="prefers-light"
+          className="theme-switcher__label theme-switcher__label--light position--relative"
+        >
+          Light
+        </label>
+      </div>
+    </section>
   );
 }
