@@ -20,9 +20,8 @@ function useThemeSwitcher() {
       styleSheet.rules,
       (rule) =>
         rule.type === CSSStyleRule.MEDIA_RULE &&
-        rule.conditionText.includes(
-          `(prefers-color-scheme: ${selectedPreference})`
-        )
+        // condition-text not supported by Safari
+        rule.media[0].includes(`(prefers-color-scheme: ${selectedPreference})`)
     );
     const themeCssText = mediaRule.cssRules[0].style.cssText;
     if (addedRuleIndex.current) styleSheet.deleteRule(addedRuleIndex.current);
