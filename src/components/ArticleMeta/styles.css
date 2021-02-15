@@ -1,0 +1,22 @@
+.on-the-line {
+  margin-left: calc(var(--space-half) * -1);
+}
+.article-meta {
+  background-color: var(--color-illuminating);
+  color: var(--color-black-3);
+  display: inline-block;
+  padding-left: var(--space-half);
+  padding-right: var(--space-half);
+  position: relative;
+}
+
+.article-meta::before {
+  content: '';
+  border-left: 1px solid var(--color-illuminating);
+  display: block;
+  height: 100%;
+  left: -1px;
+  position: absolute;
+  top: 0;
+  transform: scaleY(2);
+}

@@ -1,3 +1,5 @@
+/* global module, require */
+
 module.exports = {
   siteMetadata: {
     title: "Steven Frieson's Site",
@@ -13,6 +15,7 @@ module.exports = {
     'gatsby-plugin-sitemap',
     'gatsby-plugin-offline',
     'gatsby-remark-images',
+    'gatsby-plugin-webpack-bundle-analyser-v2',
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
