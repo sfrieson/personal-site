@@ -3,6 +3,6 @@
 <url> <loc>https://stevenfrieson.com/indexer/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://stevenfrieson.com/writing/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://stevenfrieson.com/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://stevenfrieson.com/writing/managing-css-z-index-in-large-projects/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://stevenfrieson.com/writing/breaking-up-circular-dependencies/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://stevenfrieson.com/writing/managing-css-z-index-in-large-projects/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 </urlset>
