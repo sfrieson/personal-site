@@ -16,7 +16,7 @@ const query = graphql`
   }
 `;
 
-function SEO({ title, description, isArticle }) {
+function SEO({ title, canonical, description, isArticle }) {
   const { site } = useStaticQuery(query);
   const { siteMetadata } = site;
   const seo = {
@@ -24,11 +24,14 @@ function SEO({ title, description, isArticle }) {
     description: description || siteMetadata.defaultDescription,
     twitterUsername: siteMetadata.twitterUsername,
     url: siteMetadata.siteUrl,
+    canonical,
   };
   return (
     <Helmet title={seo.title}>
+      <html lang="en-US" />
       <meta charSet="utf-8" />
       <meta name="description" content={seo.description} />
+      {seo.canonical && <link rel="canonical" href={seo.canonical} />}
 
       <meta property="og:url" content={seo.url} />
       {isArticle && <meta property="og:type" content="article" />}
@@ -44,6 +47,7 @@ function SEO({ title, description, isArticle }) {
 
 SEO.propTypes = {
   title: PropTypes.string,
+  canonical: PropTypes.string,
   description: PropTypes.string,
   isArticle: PropTypes.bool,
 };
